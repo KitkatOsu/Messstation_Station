@@ -1,1 +1,3 @@
-Benutzeroberfläche JavaFX
+User Interface JavaFX:
+  -create view.fxml
+  -add functionality to UI
