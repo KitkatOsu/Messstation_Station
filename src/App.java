@@ -9,8 +9,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Darstellung als fxml-Datei
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view1.fxml"));
-        Parent root = loader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("tabPage.fxml"));
 
         // Fenster erstellen und anzeigen
         Scene scene = new Scene(root);
