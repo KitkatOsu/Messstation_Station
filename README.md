@@ -1,4 +1,7 @@
-Monke R O T A T E\
-Monke J U M P\
-https://bit.ly/3tNH8qp \
-![ABC](/edu.png)
+This is a school project by the ITG Dachau.\
+The goal is to create a functioning measuring station App that shows SenseBox data 
+Participants: \
+Helmut Almas\
+Florian Huber\
+Tobias Göbl\
+Konstantin Herzberg
