@@ -125,8 +125,3 @@ Konstantin Herzberg
 
 
 
-
-
-
-
-Monkes
