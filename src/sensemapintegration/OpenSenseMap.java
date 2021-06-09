@@ -1,12 +1,13 @@
 package sensemapintegration;
 
-import java.util.*;
-
 import org.json.*;
+
+import java.util.ArrayList;
 
 /**
  * Regelt den Zugriff auf die sensemapintegration.OpenSenseMap
  */
+
 public class OpenSenseMap implements SenseMap
 {
     private JSONObject boxDaten;
@@ -57,7 +58,7 @@ public class OpenSenseMap implements SenseMap
 
     public Messung getAktMessung(String sensorId)
     {
-        String sensorInfos = HTTPAnfrage.get(API_URL,"/boxes/" + senseBoxId+ "/sensors/" + sensorId);
+        String sensorInfos = HTTPAnfrage_Java8.get(API_URL,"/boxes/" + senseBoxId+ "/sensors/" + sensorId);
         JSONObject infosJSON = new JSONObject(sensorInfos);
         JSONObject letzteMessungJSON = infosJSON.getJSONObject("lastMeasurement");
         String wertS = letzteMessungJSON.getString("value");
@@ -70,7 +71,7 @@ public class OpenSenseMap implements SenseMap
     public ArrayList<Messung> getVieleMessungen(String sensorId)
     {
         ArrayList<Messung> liste = new ArrayList<Messung>();
-        String messungen = HTTPAnfrage.get(API_URL,"/boxes/" + senseBoxId + "/data/" + sensorId);
+        String messungen = HTTPAnfrage_Java8.get(API_URL,"/boxes/" + senseBoxId + "/data/" + sensorId);
         JSONArray messungenJSON = new JSONArray(messungen);
 
         for (int i = 0; i < messungenJSON.length(); i++)
@@ -86,7 +87,7 @@ public class OpenSenseMap implements SenseMap
 
     private JSONObject holeSenseBoxDaten()
     {
-        String senseBoxDatenJsonString = HTTPAnfrage.get(API_URL,"/boxes/"+senseBoxId);
+        String senseBoxDatenJsonString = HTTPAnfrage_Java8.get(API_URL,"/boxes/"+senseBoxId);
         JSONObject daten = null;
         if (senseBoxDatenJsonString != null) 
         {
