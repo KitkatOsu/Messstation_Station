@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller2">
    <children>
-      <LineChart fx:id="lineChart1" layoutX="166.0" layoutY="107.0" prefHeight="230.0" prefWidth="308.0">
+      <LineChart fx:id="lineChart1" layoutX="166.0" layoutY="107.0" prefHeight="230.0" prefWidth="308.0" style="-fx-legend-side: white;">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>

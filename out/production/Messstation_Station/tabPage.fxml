@@ -10,7 +10,7 @@
 	  <fx:include fx:id="tab1Page" source="main.fxml" />
     </Tab>
     <Tab fx:id="tab2" text="Tab 2">
-	  <fx:include fx:id="tab2Page" source="view2.fxml" />
+	  <fx:include fx:id="tab2Page" source="diagrams.fxml" />
     </Tab>
   </tabs>
 </TabPane>

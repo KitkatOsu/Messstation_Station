@@ -11,7 +11,6 @@ public class MeasuringStation {
         temp = new Sensor(this);
         tempValues = new ArrayList<Float>();
         observers = new ArrayList<Observer>();
-
     }
 
     public void runSensors() {

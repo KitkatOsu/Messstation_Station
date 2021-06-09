@@ -73,6 +73,8 @@ public class Controller1 {
 
     @FXML
     void initialize() {
+
+
         assert pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'main.fxml'.";
         assert light1 != null : "fx:id=\"light1\" was not injected: check your FXML file 'main.fxml'.";
         assert light2 != null : "fx:id=\"light2\" was not injected: check your FXML file 'main.fxml'.";
