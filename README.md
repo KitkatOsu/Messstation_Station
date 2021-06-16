@@ -1,1 +1,1 @@
-This Instance of a measuring station is an open source application designed for Win10+ PCs and beyond. The goal of said application is to give out information about any measuring station listed on the website https://opensensemap.org/ /
+This Instance of a measuring station is an open source application designed for Win10+ PCs and beyond. The goal of said application is to give out information about any measuring station listed on the website https://opensensemap.org/ \
