@@ -15,3 +15,7 @@ Messreihe (class that contains object of the class Messung)
 
 Methods:
 String toString() returns the name of the Messreihe (e.g. CO₂ ( ppm ) or Temperatur ( °C ))
+String getTitel() returns the type of the Messungen (e.g. Temperatur or CO₂)
+String getAktWert() returns the latest value of that Messreihe
+String getMaxWert() returns the highest value in that Messreihe
+String getMinWert() returns the lowest value in that Messreihe
