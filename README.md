@@ -4,4 +4,4 @@ We do not assure that the presented information is accurate or delayed, we do re
 
 Our application is currently WORK IN PROGRESS, hence some of our featurs might not work at the time of downloading the application.
 
-This is a school intern program mainly used to train programming and learn to work as a group, work out solutions for occuring errors and to deal with a "real life!" situation.
+This is a school intern program mainly used to train programming and learn to work as a group, work out solutions for occuring errors and to deal with a "real life" situation.
