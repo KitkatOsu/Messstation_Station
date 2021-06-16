@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+import sensemapintegration.Messstation;
 
 public class Controller1 {
 
@@ -52,6 +53,12 @@ public class Controller1 {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert co2 != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
+    }
+
+    void printTemperature(){
+        Messstation mess1 =  new Messstation("606dabb74393eb001ca6a781");
+        String temperatureData =
+       temperature.setText(temperatureData);
     }
 }
 
