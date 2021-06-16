@@ -1,0 +1,17 @@
+Documentation for the Sensemapintegration package
+
+to use import sensemapintegration.Messstation and sensemapintegration.Messreihe
+
+
+Messstation (class that gets all of the sensemap data)
+
+Methods:
+Constructor takes in a String of the senseboxid
+String getName() returns the name of the sensebox
+Messreihe getMessreihen() returns a Messreihe that contains a list of the type Messung
+
+
+Messreihe (class that contains object of the class Messung)
+
+Methods:
+String toString() returns the name of the Messreihe (e.g. CO₂ ( ppm ) or Temperatur ( °C ))
