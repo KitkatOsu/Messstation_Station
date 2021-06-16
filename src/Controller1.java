@@ -53,12 +53,13 @@ public class Controller1 {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert co2 != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
+        printTemperature();
     }
 
     void printTemperature(){
         Messstation mess1 =  new Messstation("606dabb74393eb001ca6a781");
         String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
-       temperature.setText(temperatureData);
+        temperature.setText(temperatureData);
     }
 }
 
