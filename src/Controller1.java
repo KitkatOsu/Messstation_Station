@@ -57,7 +57,7 @@ public class Controller1 {
 
     void printTemperature(){
         Messstation mess1 =  new Messstation("606dabb74393eb001ca6a781");
-        String temperatureData =
+        String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
        temperature.setText(temperatureData);
     }
 }
