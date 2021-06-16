@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller2">
+   <children>
+      <LineChart fx:id="lineChart1" layoutX="166.0" layoutY="107.0" prefHeight="230.0" prefWidth="308.0" style="-fx-legend-side: white;">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <BarChart fx:id="barChart1" layoutX="166.0" layoutY="380.0" prefHeight="220.0" prefWidth="282.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <LineChart fx:id="lineChart2" layoutX="576.0" layoutY="107.0" prefHeight="230.0" prefWidth="534.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <TextField fx:id="chartText1" layoutX="184.0" layoutY="84.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField fx:id="chartText2" layoutX="594.0" layoutY="84.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField layoutX="594.0" layoutY="363.0" prefHeight="25.0" prefWidth="235.0" />
+      <TextField fx:id="barChartText1" layoutX="184.0" layoutY="363.0" prefHeight="25.0" prefWidth="235.0" />
+      <LineChart fx:id="chartText3" layoutX="576.0" layoutY="380.0" prefHeight="220.0" prefWidth="282.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+   </children>
+</Pane>
