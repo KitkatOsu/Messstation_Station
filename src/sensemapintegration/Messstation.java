@@ -60,5 +60,13 @@ public class Messstation
         return messreihen;
     }
 
+    public Messreihe getMessreihe(String nameOfMessreihe){
+        for(Messreihe r : messreihen) {
+            if (nameOfMessreihe.equals(r.getTitel()))
+                return r;
+        }
+        return null;
+    }
+
 }
 
