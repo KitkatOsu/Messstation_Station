@@ -44,7 +44,7 @@ public class Controller1 {
     private TextField co2;
 
     @FXML
-    void initialize() {
+    void initialize(){
         assert pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'main.fxml'.";
         assert light1 != null : "fx:id=\"light1\" was not injected: check your FXML file 'main.fxml'.";
         assert light2 != null : "fx:id=\"light2\" was not injected: check your FXML file 'main.fxml'.";
@@ -63,9 +63,10 @@ public class Controller1 {
         TimerTask task = new TimerTask()
         {
             Controller1 c = cont;
-            Messstation mess1 =  new Messstation("607db857542eeb001cba21f0");
+
             @Override
             public void run () {
+                Messstation mess1 =  new Messstation("607db857542eeb001cba21f0");
             String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
             c.temperature.setText(temperatureData + "°C");
 
