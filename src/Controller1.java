@@ -59,7 +59,7 @@ public class Controller1 {
     }
 
     void printTemperature(){
-        Messstation mess1 =  new Messstation("606dabb74393eb001ca6a781");
+        Messstation mess1 =  new Messstation("600c194c9610e6001be096e7");
         TimerTask task = new TimerTask()
         {
             @Override
