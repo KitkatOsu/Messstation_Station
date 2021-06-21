@@ -63,11 +63,11 @@ public class Controller1 {
         TimerTask task = new TimerTask()
         {
             Controller1 c = cont;
-            Messstation mess1 =  new Messstation("600c194c9610e6001be096e7");
+            Messstation mess1 =  new Messstation("607db857542eeb001cba21f0");
             @Override
             public void run () {
             String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
-            c.temperature.setText(temperatureData);
+            c.temperature.setText(temperatureData + "°C");
 
             }
         };
