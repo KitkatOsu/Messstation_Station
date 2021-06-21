@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
+import java.util.Timer;
+import java.util.TimerTask;
 import sensemapintegration.Messstation;
 
 public class Controller1 {
@@ -58,8 +60,17 @@ public class Controller1 {
 
     void printTemperature(){
         Messstation mess1 =  new Messstation("606dabb74393eb001ca6a781");
-        String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
-        temperature.setText(temperatureData);
+        TimerTask task = new TimerTask()
+        {
+            @Override
+            public void run () {
+            String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
+            temperature.setText(temperatureData);
+
+            }
+        };
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(task, 1, 60000);
     }
 }
 

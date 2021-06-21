@@ -13,13 +13,11 @@ public class App extends Application {
 
         // Fenster erstellen und anzeigen
         Scene scene = new Scene(root);
-//        scene.getRoot().setStyle("-fx-base:black");
+        //scene.getRoot().setStyle("-fx-base:black");
         //scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) {launch(args);}
 }
