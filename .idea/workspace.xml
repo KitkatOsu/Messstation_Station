@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="updated gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diagrams.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/diagrams.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tabPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabPage.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,6 +13,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uFPC3lYGON6JVRdriVvsXYwaEG" />
