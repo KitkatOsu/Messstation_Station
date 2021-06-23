@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="Changing the UI">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="removed impressum stuff because flo forgot">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SensemapintegrationDoc" beforeDir="false" afterPath="$PROJECT_DIR$/src/SensemapintegrationDoc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,25 +22,35 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uFPC3lYGON6JVRdriVvsXYwaEG" />
-  <component name="ProjectLevelVcsManager">
-    <OptionsSetting value="false" id="Update" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path" value="E:\IntelliJ\Projects\Measuring-Station\+libs" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IntelliJ\Projects\Measuring-Station\+libs" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="Messstation_Station" />
+      <option name="VM_PARAMETERS" value="--module-path +libs --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -80,7 +91,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624262782084</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed the java version of the project to java 11.">
+      <created>1624472677612</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624472677612</updated>
+    </task>
+    <task id="LOCAL-00005" summary="removed impressum stuff because flo forgot">
+      <created>1624473797657</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624473797657</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +124,8 @@
     <MESSAGE value="fixed timer for sensor data" />
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="reverted gitignore by manually adding files back" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverted gitignore by manually adding files back" />
+    <MESSAGE value="changed the java version of the project to java 11." />
+    <MESSAGE value="removed impressum stuff because flo forgot" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed impressum stuff because flo forgot" />
   </component>
 </project>

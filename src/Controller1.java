@@ -1,3 +1,4 @@
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -32,6 +33,9 @@ public class Controller1 {
     private TextField searchbar;
 
     @FXML
+    private TextField newID;
+
+    @FXML
     private TextField temperature;
 
     @FXML
@@ -40,6 +44,8 @@ public class Controller1 {
     @FXML
     private TextField pressure;
 
+    private String senseBoxId = "607db857542eeb001cba21f0";
+
     @FXML
     void initialize(){
         assert pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'main.fxml'.";
@@ -47,6 +53,7 @@ public class Controller1 {
         assert light2 != null : "fx:id=\"light2\" was not injected: check your FXML file 'main.fxml'.";
         assert light3 != null : "fx:id=\"light3\" was not injected: check your FXML file 'main.fxml'.";
         assert searchbar != null : "fx:id=\"searchbar\" was not injected: check your FXML file 'main.fxml'.";
+        assert newID != null : "fx:id=\"newID\" was not injected: check your FXML file 'main.fxml'.";
         assert temperature != null : "fx:id=\"temperature\" was not injected: check your FXML file 'main.fxml'.";
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
@@ -54,13 +61,14 @@ public class Controller1 {
         printNewData();
     }
 
+
     void printNewData(){
         Controller1 cont = this;
         TimerTask task = new TimerTask()
         {
             Controller1 c = cont;
 
-            Messstation mess =  new Messstation("607db857542eeb001cba21f0");
+            Messstation mess =  new Messstation(senseBoxId);
 
             @Override
             public void run ()
@@ -77,6 +85,12 @@ public class Controller1 {
         };
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(task, 1, 5000);
+    }
+
+    @FXML
+    public void submitNewId(javafx.event.ActionEvent actionEvent) {
+        senseBoxId = newID.getText();
+        newID.clear();
     }
 }
 
