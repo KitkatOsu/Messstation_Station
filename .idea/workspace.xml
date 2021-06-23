@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="updated gitignore">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/diagrams.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/diagrams.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tabPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/tabPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messstation_Station.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Messstation_Station.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sensemapintegration/HTTPAnfrage_Java8.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sensemapintegration/HTTPAnfrage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sensemapintegration/OpenSenseMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sensemapintegration/OpenSenseMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,17 +29,29 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path" value="E:\IntelliJ\Projects\Measuring-Station\+libs" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\IntelliJ\Projects\Measuring-Station\+libs" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="Messstation_Station" />
+      <option name="VM_PARAMETERS" value="--module-path +libs --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
