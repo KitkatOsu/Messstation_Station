@@ -55,20 +55,25 @@ public class Controller1 {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert co2 != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
-        printTemperature();
+        printNewData();
     }
 
-    void printTemperature(){
+    void printNewData(){
         Controller1 cont = this;
         TimerTask task = new TimerTask()
         {
             Controller1 c = cont;
 
+            Messstation mess =  new Messstation("607db857542eeb001cba21f0");
+
             @Override
-            public void run () {
-                Messstation mess1 =  new Messstation("607db857542eeb001cba21f0");
-            String temperatureData = mess1.getMessreihe("Temperatur").getAktWert();
-            c.temperature.setText(temperatureData + "°C");
+            public void run ()
+            {
+                mess.messreihenEinlesen();
+            String temperatureData = mess.getMessreihe("Temperatur").getAktWert();
+            String humidityData = mess.getMessreihe("rel. Luftfeuchte").getAktWert();
+            c.temperature.setText(temperatureData + "°C"); // better if the getEinheit() method of messreihe is used
+            c.humidity.setText(humidityData + "%");
 
             }
         };

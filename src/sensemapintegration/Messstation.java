@@ -36,7 +36,7 @@ public class Messstation
         }        
     }
 
-    private void messreihenEinlesen()
+    public void messreihenEinlesen()
     {
         for (Messreihe s:messreihen)
         {
