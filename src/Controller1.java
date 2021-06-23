@@ -35,9 +35,6 @@ public class Controller1 {
     private TextField temperature;
 
     @FXML
-    private TextField impressum;
-
-    @FXML
     private TextField humidity;
 
     @FXML
@@ -51,7 +48,6 @@ public class Controller1 {
         assert light3 != null : "fx:id=\"light3\" was not injected: check your FXML file 'main.fxml'.";
         assert searchbar != null : "fx:id=\"searchbar\" was not injected: check your FXML file 'main.fxml'.";
         assert temperature != null : "fx:id=\"temperature\" was not injected: check your FXML file 'main.fxml'.";
-        assert impressum != null : "fx:id=\"impressum\" was not injected: check your FXML file 'main.fxml'.";
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
