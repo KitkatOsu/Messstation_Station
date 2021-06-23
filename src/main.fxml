@@ -33,28 +33,28 @@
                </color>
             </DropShadow>
          </effect></Circle>
-      <TextField fx:id="searchbar" layoutX="71.0" layoutY="86.0" prefHeight="25.0" prefWidth="296.0" promptText="Searchbar" style="-fx-background-color: lightgrey;">
+      <TextField fx:id="searchbar" layoutX="71.0" layoutY="86.0" prefHeight="25.0" prefWidth="296.0" promptText="Searchbar" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="temperature" layoutX="102.0" layoutY="187.0" prefHeight="25.0" prefWidth="241.0" promptText="Temperature" style="-fx-background-color: lightgrey;">
+      <TextField fx:id="temperature" layoutX="102.0" layoutY="187.0" prefHeight="25.0" prefWidth="241.0" promptText="Temperature" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="humidity" layoutX="103.0" layoutY="303.0" prefHeight="25.0" prefWidth="241.0" promptText="Humidity" style="-fx-background-color: lightgrey;">
+      <TextField fx:id="humidity" layoutX="103.0" layoutY="303.0" prefHeight="25.0" prefWidth="241.0" promptText="Humidity" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="pressure" layoutX="103.0" layoutY="241.0" prefHeight="25.0" prefWidth="241.0" promptText="Air pressure" style="-fx-background-color: lightgrey;">
+      <TextField fx:id="pressure" layoutX="103.0" layoutY="241.0" prefHeight="25.0" prefWidth="241.0" promptText="Air pressure" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField layoutX="52.0" layoutY="518.0" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey;">
+      <TextField fx:id="newID" layoutX="52.0" layoutY="518.0" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <Button layoutX="317.0" layoutY="518.0" mnemonicParsing="false" text="Submit">
+      <Button layoutX="317.0" layoutY="518.0" mnemonicParsing="false" onAction="#submitNewId" text="Submit">
          <effect>
             <DropShadow blurType="GAUSSIAN" height="40.0" radius="19.5" width="40.0">
                <color>
