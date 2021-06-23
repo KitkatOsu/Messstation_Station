@@ -13,6 +13,6 @@
       <TextField fx:id="temperature" layoutX="102.0" layoutY="187.0" prefHeight="25.0" prefWidth="241.0" />
       <TextField fx:id="impressum" layoutX="48.0" layoutY="393.0" prefHeight="25.0" prefWidth="301.0" />
       <TextField fx:id="humidity" layoutX="103.0" layoutY="303.0" prefHeight="25.0" prefWidth="241.0" />
-      <TextField fx:id="co2" layoutX="103.0" layoutY="241.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="pressure" layoutX="103.0" layoutY="241.0" prefHeight="25.0" prefWidth="241.0" />
    </children>
 </Pane>

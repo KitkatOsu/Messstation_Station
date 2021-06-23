@@ -41,7 +41,7 @@ public class Controller1 {
     private TextField humidity;
 
     @FXML
-    private TextField co2;
+    private TextField pressure;
 
     @FXML
     void initialize(){
@@ -53,7 +53,7 @@ public class Controller1 {
         assert temperature != null : "fx:id=\"temperature\" was not injected: check your FXML file 'main.fxml'.";
         assert impressum != null : "fx:id=\"impressum\" was not injected: check your FXML file 'main.fxml'.";
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
-        assert co2 != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
+        assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
         printNewData();
     }
@@ -72,8 +72,10 @@ public class Controller1 {
                 mess.messreihenEinlesen();
             String temperatureData = mess.getMessreihe("Temperatur").getAktWert();
             String humidityData = mess.getMessreihe("rel. Luftfeuchte").getAktWert();
+            String pressureData =  mess.getMessreihe("Luftdruck").getAktWert();
             c.temperature.setText(temperatureData + "°C"); // better if the getEinheit() method of messreihe is used
             c.humidity.setText(humidityData + "%");
+            c.pressure.setText(pressureData + "hPa");
 
             }
         };
