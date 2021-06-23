@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="changed the java version of the project to java 11.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="67b65f3a-5fe0-4ab7-8857-50e5bf69e541" name="Default Changelist" comment="removed impressum stuff because flo forgot" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624472677612</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="removed impressum stuff because flo forgot">
+      <created>1624473797657</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624473797657</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +119,7 @@
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="reverted gitignore by manually adding files back" />
     <MESSAGE value="changed the java version of the project to java 11." />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the java version of the project to java 11." />
+    <MESSAGE value="removed impressum stuff because flo forgot" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed impressum stuff because flo forgot" />
   </component>
 </project>
