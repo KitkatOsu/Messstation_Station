@@ -4,6 +4,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -67,19 +68,23 @@ public class Controller1 {
         TimerTask task = new TimerTask()
         {
             Controller1 c = cont;
-
-            Messstation mess =  new Messstation(senseBoxId);
+            String id = senseBoxId;
+            Messstation mess =  new Messstation(c.senseBoxId);
 
             @Override
             public void run ()
             {
+                if(!id.equals(c.senseBoxId)){
+                    mess = new Messstation(c.senseBoxId);
+                    id = c.senseBoxId;
+                }
                 mess.messreihenEinlesen();
-            String temperatureData = mess.getMessreihe("Temperatur").getAktWert();
-            String humidityData = mess.getMessreihe("rel. Luftfeuchte").getAktWert();
-            String pressureData =  mess.getMessreihe("Luftdruck").getAktWert();
-            c.temperature.setText(temperatureData + "°C"); // better if the getEinheit() method of messreihe is used
-            c.humidity.setText(humidityData + "%");
-            c.pressure.setText(pressureData + "hPa");
+                String temperatureData = mess.getMessreihe("Temperatur").getAktWert();
+                String humidityData = mess.getMessreihe("rel. Luftfeuchte").getAktWert();
+                String pressureData =  mess.getMessreihe("Luftdruck").getAktWert();
+                c.temperature.setText(temperatureData + "°C"); // better if the getEinheit() method of messreihe is used
+                c.humidity.setText(humidityData + "%");
+                c.pressure.setText(pressureData + "hPa");
 
             }
         };
@@ -89,7 +94,8 @@ public class Controller1 {
 
     @FXML
     public void submitNewId(javafx.event.ActionEvent actionEvent) {
-        senseBoxId = newID.getText();
+        if(newID.getText().length()==24)
+            senseBoxId = newID.getText();
         newID.clear();
     }
 }
