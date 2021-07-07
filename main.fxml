@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="440.0" style="-fx-background-color: #36393f;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller1">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="440.0" style="-fx-background-color: #36393f;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller1">
    <children>
       <Circle fx:id="light1" fill="#ff1f1f" layoutX="72.0" layoutY="199.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: red;">
          <effect>
@@ -51,12 +51,12 @@
          <effect>
             <DropShadow />
          </effect></TextField>
-      <TextField fx:id="newID" layoutX="71.0" layoutY="518.0" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
+      <TextField fx:id="newID" layoutX="102.0" layoutY="419.0" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
          <effect>
             <DropShadow />
          </effect>
       </TextField>
-      <Button layoutX="317.0" layoutY="518.0" mnemonicParsing="false" onAction="#submitNewId" text="Submit">
+      <Button layoutX="348.0" layoutY="419.0" mnemonicParsing="false" onAction="#submitNewId" text="Submit">
          <effect>
             <DropShadow blurType="GAUSSIAN" height="40.0" radius="19.5" width="40.0">
                <color>
@@ -65,7 +65,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <ImageView fitHeight="52.0" fitWidth="63.0" layoutX="7.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="52.0" fitWidth="63.0" layoutX="38.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Sensemap%20logo2.png" />
          </image>
