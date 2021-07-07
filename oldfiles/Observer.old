@@ -1,3 +1,3 @@
-public interface Observer {
+public interface sensemapintegration.Observer {
     void update();
 }

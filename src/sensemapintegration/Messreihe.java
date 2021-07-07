@@ -71,4 +71,8 @@ public class Messreihe
     {
         return Auswertungen.min(messungen) + "";
     }
+
+    public String getEinheit() {
+        return einheit;
+    }
 }

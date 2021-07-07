@@ -1,16 +1,17 @@
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.Timer;
 import java.util.TimerTask;
-import sensemapintegration.Messstation;
 
-public class Controller1 {
+import sensemapintegration.Messreihe;
+import sensemapintegration.Messstation;
+import sensemapintegration.Observer;
+
+public class Controller1 implements Observer {
 
     @FXML
     private ResourceBundle resources;
@@ -38,14 +39,19 @@ public class Controller1 {
 
     @FXML
     private TextField temperature;
+    private Messreihe temperatureData;
 
     @FXML
     private TextField humidity;
+    private Messreihe humidityData;
 
     @FXML
     private TextField pressure;
+    private Messreihe pressureData;
+
 
     private String senseBoxId = "607db857542eeb001cba21f0";
+    private Messstation messstation;
 
     @FXML
     void initialize(){
@@ -59,37 +65,15 @@ public class Controller1 {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
-        printNewData();
+        messstation = new Messstation(senseBoxId);
+        messstation.messreihenEinlesen();
+        messstation.addObserver(this);
+        messstation.startTimer();
     }
 
 
-    void printNewData(){
-        Controller1 cont = this;
-        TimerTask task = new TimerTask()
-        {
-            Controller1 c = cont;
-            String id = senseBoxId;
-            Messstation mess =  new Messstation(c.senseBoxId);
+    public void changeLightColors(){
 
-            @Override
-            public void run ()
-            {
-                if(!id.equals(c.senseBoxId)){
-                    mess = new Messstation(c.senseBoxId);
-                    id = c.senseBoxId;
-                }
-                mess.messreihenEinlesen();
-                String temperatureData = mess.getMessreihe("Temperatur").getAktWert();
-                String humidityData = mess.getMessreihe("rel. Luftfeuchte").getAktWert();
-                String pressureData =  mess.getMessreihe("Luftdruck").getAktWert();
-                c.temperature.setText(temperatureData + "°C"); // better if the getEinheit() method of messreihe is used
-                c.humidity.setText(humidityData + "%");
-                c.pressure.setText(pressureData + "hPa");
-
-            }
-        };
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(task, 1, 5000);
     }
 
     @FXML
@@ -98,5 +82,20 @@ public class Controller1 {
             senseBoxId = newID.getText();
         newID.clear();
     }
-}
 
+    @Override
+    public void update() {
+        temperatureData = messstation.getMessreihe(Messstation.TEMPERATURE);
+        humidityData = messstation.getMessreihe(Messstation.HUMIDITY);
+        pressureData = messstation.getMessreihe(Messstation.PRESSURE);
+
+
+        updateTextfields();
+    }
+
+    private void updateTextfields() {
+        temperature.setText(temperatureData.getAktWert() + temperatureData.getEinheit());
+        humidity.setText(humidityData.getAktWert() + humidityData.getEinheit());
+        pressure.setText(pressureData.getAktWert() + pressureData.getEinheit());
+    }
+}
