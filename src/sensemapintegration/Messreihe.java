@@ -34,9 +34,9 @@ public class Messreihe
         return titel;
     }
     
-    public String getAktWert()
+    public double getAktWert()
     {
-        return getAktMessung().getWert() + "";
+        return getAktMessung().getWert();
     }
     
     public void eineMessungHinzufuegen(Messung m)

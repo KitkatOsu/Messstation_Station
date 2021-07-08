@@ -3,6 +3,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import sensemapintegration.Messreihe;
@@ -68,7 +69,8 @@ public class Controller1 implements Observer {
 
 
     public void changeLightColors(){
-
+        float newHue1 = (float) ((temperatureData.getAktWert()+10)/(55+10) * (0-270) + 270);
+        light1.setFill(Color.hsb(newHue1,1,1));
     }
 
     @FXML
@@ -89,7 +91,7 @@ public class Controller1 implements Observer {
         temperatureData = messstation.getMessreiheMitEinheit("°C");
         if (temperatureData==null)
             temperatureData = new Messreihe("N/A","N/A","N/A");
-        
+
         humidityData = messstation.getMessreiheMitEinheit("%");
         if (humidityData==null)
             humidityData = new Messreihe("N/A","N/A","N/A");
@@ -102,6 +104,7 @@ public class Controller1 implements Observer {
     @Override
     public void update() {
         updateTextfields();
+        changeLightColors();
     }
 
     private void updateTextfields() {
