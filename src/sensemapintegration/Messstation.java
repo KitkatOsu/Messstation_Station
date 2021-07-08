@@ -12,15 +12,14 @@ public class Messstation {
     private String name;
     private ArrayList<Messreihe> messreihen;
     private ArrayList<Observer> observers = new ArrayList<Observer>();
+    private TimerTask updater;
 
-    public static final String TEMPERATURE = "Temperatur";
-    public static final String HUMIDITY = "rel. Luftfeuchte";
-    public static final String PRESSURE = "Luftdruck";
 
     public Messstation(String senseBoxId) {
         if (senseBoxId.equals("sim")) {
             map = new SenseMapSimulation();
-        } else {
+        }
+        else {
             map = new OpenSenseMap(senseBoxId);
         }
 
@@ -35,25 +34,33 @@ public class Messstation {
         observers.add(o);
     }
 
+    public void stopTimer(){
+        updater.cancel();
+    }
+
     public void startTimer() {
         Messstation a = this;
-        TimerTask task = new TimerTask() {
+        updater = new TimerTask() {
 
             Messstation m = a;
 
             @Override
             public void run() {
-                m.messreihenEinlesen();
+                m.aktuelleMesswerteEinlesen();
             }
         };
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(task, 1, 10000);
+        timer.scheduleAtFixedRate(updater, 1, 10000);
     }
 
     public void aktuelleMesswerteEinlesen() {
         for (Messreihe s : messreihen) {
             Messung m = map.getAktMessung(s.getSensorId());
             s.eineMessungHinzufuegen(m);
+        }
+
+        for(Observer o : observers){
+            o.update();
         }
     }
 
@@ -85,6 +92,7 @@ public class Messstation {
             if (nameOfMessreihe.equals(r.getTitel()))
                 return r;
         }
+        System.out.println("ERROR: Messreihe with name " + nameOfMessreihe + " doesn't exist");
         return null;
     }
 

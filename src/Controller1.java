@@ -66,7 +66,6 @@ public class Controller1 implements Observer {
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
         messstation = new Messstation(senseBoxId);
-        messstation.messreihenEinlesen();
         messstation.addObserver(this);
         messstation.startTimer();
     }
@@ -78,16 +77,21 @@ public class Controller1 implements Observer {
 
     @FXML
     public void submitNewId(javafx.event.ActionEvent actionEvent) {
-        if(newID.getText().length()==24)
+        if(newID.getText().length()==24) {
             senseBoxId = newID.getText();
+            messstation.stopTimer();
+            messstation = new Messstation(senseBoxId);
+            messstation.addObserver(this);
+            messstation.startTimer();
+        }
         newID.clear();
     }
 
     @Override
     public void update() {
-        temperatureData = messstation.getMessreihe(Messstation.TEMPERATURE);
-        humidityData = messstation.getMessreihe(Messstation.HUMIDITY);
-        pressureData = messstation.getMessreihe(Messstation.PRESSURE);
+        temperatureData = messstation.getMessreihen().get(0);
+        humidityData = messstation.getMessreihen().get(1);
+        pressureData = messstation.getMessreihen().get(2);
 
 
         updateTextfields();
