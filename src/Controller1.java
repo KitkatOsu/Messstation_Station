@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import sensemapintegration.Messreihe;
 import sensemapintegration.Messstation;
@@ -65,9 +63,7 @@ public class Controller1 implements Observer {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
-        messstation = new Messstation(senseBoxId);
-        messstation.addObserver(this);
-        messstation.startTimer();
+        messstationInitialisieren();
     }
 
 
@@ -80,20 +76,31 @@ public class Controller1 implements Observer {
         if(newID.getText().length()==24) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
-            messstation = new Messstation(senseBoxId);
-            messstation.addObserver(this);
-            messstation.startTimer();
+            messstationInitialisieren();
         }
         newID.clear();
     }
 
+    private void messstationInitialisieren() {
+        messstation = new Messstation(senseBoxId);
+        messstation.addObserver(this);
+        messstation.startTimer();
+
+        temperatureData = messstation.getMessreiheMitEinheit("°C");
+        if (temperatureData==null)
+            temperatureData = new Messreihe("N/A","N/A","N/A");
+        
+        humidityData = messstation.getMessreiheMitEinheit("%");
+        if (humidityData==null)
+            humidityData = new Messreihe("N/A","N/A","N/A");
+
+        pressureData = messstation.getMessreiheMitEinheit("hPa");
+        if (pressureData==null)
+            pressureData = new Messreihe("N/A","N/A","N/A");
+    }
+
     @Override
     public void update() {
-        temperatureData = messstation.getMessreihen().get(0);
-        humidityData = messstation.getMessreihen().get(1);
-        pressureData = messstation.getMessreihen().get(2);
-
-
         updateTextfields();
     }
 

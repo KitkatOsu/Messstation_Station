@@ -96,4 +96,12 @@ public class Messstation {
         return null;
     }
 
+    public Messreihe getMessreiheMitEinheit(String einheit) {
+        for (Messreihe r : messreihen) {
+            if (einheit.equals(r.getEinheit()))
+                return r;
+        }
+        System.out.println("ERROR: Messreihe with unit " + einheit + " doesn't exist");
+        return null;
+    }
 }
