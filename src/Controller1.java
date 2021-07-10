@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -93,7 +94,9 @@ public class Controller1 implements Observer {
 
     @FXML
     public void submitNewId(javafx.event.ActionEvent actionEvent) {
-        if (newID.getText().length() == 24  || newID.getText().equalsIgnoreCase("sim")) {
+        newID.setText(newID.getText().toLowerCase());
+
+        if (newID.getText().length() == 24  || newID.getText().equals("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
             messstationInitialisieren();
