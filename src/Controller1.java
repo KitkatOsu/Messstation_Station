@@ -74,6 +74,16 @@ public class Controller1 implements Observer {
         Color newFill1 = Color.hsb(newHue1,1,1);
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
+
+        float newHue2 = (float) ((pressureData.getAktWert()+900)/(1400+900) * (0-270) + 270);
+        Color newFill2 = Color.hsb(newHue2,1,1);
+        light2.setFill(newFill2);
+        light2.setEffect(new DropShadow(40, newFill2));
+
+        float newHue3 = (float) ((humidityData.getAktWert()+ 0)/(100+0) * (0-270) + 270);
+        Color newFill3 = Color.hsb(newHue3,1,1);
+        light3.setFill(newFill3);
+        light3.setEffect(new DropShadow(40, newFill3));
     }
 
     @FXML
