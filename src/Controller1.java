@@ -50,11 +50,12 @@ public class Controller1 implements Observer {
     private Messreihe pressureData;
 
 
-    private String senseBoxId = "607db857542eeb001cba21f0";
+    private String senseBoxId;
+
     private Messstation messstation;
 
     @FXML
-    void initialize(){
+    void initialize() {
         assert pane != null : "fx:id=\"pane\" was not injected: check your FXML file 'main.fxml'.";
         assert light1 != null : "fx:id=\"light1\" was not injected: check your FXML file 'main.fxml'.";
         assert light2 != null : "fx:id=\"light2\" was not injected: check your FXML file 'main.fxml'.";
@@ -65,13 +66,17 @@ public class Controller1 implements Observer {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'main.fxml'.";
         assert pressure != null : "fx:id=\"co2\" was not injected: check your FXML file 'main.fxml'.";
 
+        senseBoxId = "607db857542eeb001cba21f0";
+//        senseBoxId = "sim";
+
         messstationInitialisieren();
     }
 
 
-    public void changeLightColors(){
-        float newHue1 = (float) ((temperatureData.getAktWert()+10)/(55+10) * (0-270) + 270);
-        Color newFill1 = Color.hsb(newHue1,1,1);
+    public void changeLightColors() {
+        // Formula: Y = (X-A)/(B-A) * (D-C) + C
+        float newHue1 = (float) ((temperatureData.getAktWert() + 10) / (55 + 10) * (0 - 270) + 270);
+        Color newFill1 = Color.hsb(newHue1, 1, 1);
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
 
@@ -88,10 +93,13 @@ public class Controller1 implements Observer {
 
     @FXML
     public void submitNewId(javafx.event.ActionEvent actionEvent) {
-        if(newID.getText().length()==24) {
+        if (newID.getText().length() == 24  || newID.getText().equalsIgnoreCase("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
             messstationInitialisieren();
+            temperature.clear();
+            pressure.clear();
+            humidity.clear();
         }
         newID.clear();
     }
@@ -102,16 +110,16 @@ public class Controller1 implements Observer {
         messstation.startTimer();
 
         temperatureData = messstation.getMessreiheMitEinheit("°C");
-        if (temperatureData==null)
-            temperatureData = new Messreihe("N/A","N/A","N/A");
-
-        humidityData = messstation.getMessreiheMitEinheit("%");
-        if (humidityData==null)
-            humidityData = new Messreihe("N/A","N/A","N/A");
+        if (temperatureData == null)
+            temperatureData = new Messreihe("N/A", "Temperatur", "N/A");
 
         pressureData = messstation.getMessreiheMitEinheit("hPa");
-        if (pressureData==null)
-            pressureData = new Messreihe("N/A","N/A","N/A");
+        if (pressureData == null)
+            pressureData = new Messreihe("N/A", "Luftdruck", "N/A");
+
+        humidityData = messstation.getMessreiheMitEinheit("%");
+        if (humidityData == null)
+            humidityData = new Messreihe("N/A", "rel. Luftfeuchte", "N/A");
     }
 
     @Override
@@ -121,8 +129,21 @@ public class Controller1 implements Observer {
     }
 
     private void updateTextfields() {
-        temperature.setText(temperatureData.getAktWert() + temperatureData.getEinheit());
-        humidity.setText(humidityData.getAktWert() + humidityData.getEinheit());
-        pressure.setText(pressureData.getAktWert() + pressureData.getEinheit());
+
+        if (!temperatureData.getEinheit().equalsIgnoreCase("N/A"))
+            temperature.setText(temperatureData.getAktWert() + temperatureData.getEinheit());
+        else
+            temperature.setText(temperatureData.getEinheit());
+
+        if (!pressureData.getEinheit().equalsIgnoreCase("N/A"))
+            pressure.setText(pressureData.getAktWert() + pressureData.getEinheit());
+        else
+            pressure.setText(pressureData.getEinheit());
+
+        if (!humidityData.getEinheit().equalsIgnoreCase("N/A"))
+            humidity.setText(humidityData.getAktWert() + humidityData.getEinheit());
+        else
+            humidity.setText(humidityData.getEinheit());
+
     }
 }
