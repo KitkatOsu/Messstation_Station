@@ -2,6 +2,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -70,7 +71,9 @@ public class Controller1 implements Observer {
 
     public void changeLightColors(){
         float newHue1 = (float) ((temperatureData.getAktWert()+10)/(55+10) * (0-270) + 270);
-        light1.setFill(Color.hsb(newHue1,1,1));
+        Color newFill1 = Color.hsb(newHue1,1,1);
+        light1.setFill(newFill1);
+        light1.setEffect(new DropShadow(40, newFill1));
     }
 
     @FXML

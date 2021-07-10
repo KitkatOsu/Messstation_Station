@@ -9,25 +9,25 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="440.0" style="-fx-background-color: #36393f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller1">
    <children>
-      <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: red;">
+      <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
-            <DropShadow height="80.0" radius="39.5" width="80.0">
+            <DropShadow radius="40.0" >
                <color>
                   <Color red="1.0" />
                </color>
             </DropShadow>
          </effect></Circle>
-      <Circle fx:id="light2" fill="#f8ff21" layoutX="94.0" layoutY="255.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: yellow;">
+      <Circle fx:id="light2" fill="#f8ff21" layoutX="94.0" layoutY="255.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
-            <DropShadow height="80.0" radius="39.5" width="80.0">
+            <DropShadow radius="40.0" >
                <color>
                   <Color red="0.8166666626930237" green="1.0" />
                </color>
             </DropShadow>
          </effect></Circle>
-      <Circle fx:id="light3" fill="#1fff1f" layoutX="94.0" layoutY="309.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: lightgreen;">
+      <Circle fx:id="light3" fill="#1fff1f" layoutX="94.0" layoutY="309.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
-            <DropShadow height="80.0" radius="39.5" width="80.0">
+            <DropShadow radius="40.0">
                <color>
                   <Color red="0.06666667014360428" green="1.0" />
                </color>
@@ -65,7 +65,7 @@
       </Button>
       <ImageView fitHeight="52.0" fitWidth="63.0" layoutX="38.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/Sensemap%20logo.png" />
+            <Image url="@Images/Sensemap logo.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="52.0" fitWidth="40.0" layoutX="74.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
@@ -75,7 +75,7 @@
       </ImageView>
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="74.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/Valve%20pressure.png" />
+            <Image url="@Images/Valve pressure.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="80.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
