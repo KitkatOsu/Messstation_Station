@@ -13,7 +13,7 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
          <ImageView fitHeight="502.0" fitWidth="440.0" pickOnBounds="true">
             <image>
-               <Image url="@Images/tenor%20(1).gif" />
+               <Image url="@Images/background.gif" />
             </image></ImageView>
 <!--      <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true"-->
 <!--                 preserveRatio="true">-->
@@ -98,7 +98,7 @@
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
             <image>
-               <Image url="@Images/tenor%20(1).gif" />
+               <Image url="@Images/background.gif" />
             </image>
          </ImageView>
       <LineChart fx:id="tempDiagram" layoutY="14.0" prefHeight="392.0" prefWidth="412.0">
@@ -117,7 +117,7 @@
          <children>
             <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
                <image>
-                  <Image url="@Images/tenor%20(1).gif" />
+                  <Image url="@Images/background.gif" />
                </image>
             </ImageView>
          </children></AnchorPane>
@@ -127,7 +127,7 @@
          <children>
             <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
                <image>
-                  <Image url="@Images/tenor%20(1).gif" />
+                  <Image url="@Images/background.gif" />
                </image>
             </ImageView>
          </children></AnchorPane>
