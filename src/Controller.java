@@ -56,7 +56,7 @@ public class Controller implements Observer {
     private TextField newID;
 
     @FXML
-    private LineChart<Number, Number> tempDiagram;
+    private LineChart<String, Number> tempDiagram;
 
     @FXML
     private TabPane tabPane;
@@ -175,10 +175,10 @@ public class Controller implements Observer {
 
     public void updateDiagrams() {
         XYChart.Series series = new XYChart.Series();
-        for(int i =temperatureData.getMessungen().size()-51; i<temperatureData.getMessungen().size(); i++) {
+        for (int i = temperatureData.getMessungen().size() - 1; i >= temperatureData.getMessungen().size() - 10; i--) {
             Messung m = temperatureData.getMessungen().get(i);
-            series.getData().add(new XYChart.Data(i*100, m.getWert()));
-          /*  System.out.println(m.getErzeugtAm()); */
+            series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
+             /*System.out.println(m.getErzeugtAm());*/
         }
 
         tempDiagram.getData().addAll(series);

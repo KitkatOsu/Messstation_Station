@@ -8,6 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 
+<?import com.sun.javafx.scene.control.DatePickerContent?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="440.0" style="-fx-background-color: #36393f;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <Tab text="Overview">
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
@@ -103,7 +104,7 @@
          </ImageView>
       <LineChart fx:id="tempDiagram" layoutY="14.0" prefHeight="392.0" prefWidth="412.0">
         <xAxis>
-          <NumberAxis side="BOTTOM" />
+          <CategoryAxis side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
