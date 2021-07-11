@@ -4,19 +4,15 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.Parent;
 
-import java.util.Objects;
-
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Darstellung als fxml-Datei
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("tabPage.fxml")));
+        Parent root = FXMLLoader.load(getClass().getResource("tab.fxml"));
 
         // Fenster erstellen und anzeigen
         Scene scene = new Scene(root);
-        //scene.getRoot().setStyle("-fx-base:black");
-        //scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
