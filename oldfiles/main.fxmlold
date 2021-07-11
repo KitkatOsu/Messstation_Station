@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/Background.png" />
+            <Image url="@../src/Images/Background.png" />
          </image></ImageView>
       <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
@@ -74,7 +74,7 @@
       </ImageView>
       <ImageView fitHeight="52.0" fitWidth="40.0" layoutX="74.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/Thermometer.png" />
+            <Image url="@../src/Images/Thermometer.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="74.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +84,7 @@
       </ImageView>
       <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="80.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/Raindrop.png" />
+            <Image url="@../src/Images/Raindrop.png" />
          </image>
       </ImageView>
    </children>

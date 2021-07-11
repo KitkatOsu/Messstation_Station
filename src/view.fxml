@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="440.0" style="-fx-background-color: #36393f;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <Tab text="Overview">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
+<!--      <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true"-->
+<!--                 preserveRatio="true">-->
+<!--        <Image url="@Images/Background.png"/>-->
+<!--      </ImageView>-->
+      <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="TRANSPARENT">
+        <effect>
+          <DropShadow radius="40.0">
+            <color>
+              <Color red="1.0" />
+            </color>
+          </DropShadow>
+        </effect>
+      </Circle>
+      <Circle fx:id="light2" fill="#f8ff21" layoutX="94.0" layoutY="255.0" radius="20.0" stroke="TRANSPARENT">
+        <effect>
+          <DropShadow radius="40.0">
+            <color>
+              <Color red="0.8166666626930237" green="1.0" />
+            </color>
+          </DropShadow>
+        </effect>
+      </Circle>
+      <Circle fx:id="light3" fill="#1fff1f" layoutX="94.0" layoutY="309.0" radius="20.0" stroke="TRANSPARENT">
+        <effect>
+          <DropShadow radius="40.0">
+            <color>
+              <Color red="0.06666667014360428" green="1.0" />
+            </color>
+          </DropShadow>
+        </effect>
+      </Circle>
+      <TextField fx:id="searchbar" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="300.0" promptText="Searchbar" style="-fx-prompt-text-fill: black; -fx-background-color: lightgrey;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
+      <TextField fx:id="temperature" editable="false" layoutX="124.0" layoutY="188.0" prefHeight="25.0" prefWidth="241.0" promptText="Temperature" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
+      <TextField fx:id="humidity" editable="false" layoutX="125.0" layoutY="296.0" prefHeight="25.0" prefWidth="241.0" promptText="Humidity" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
+      <TextField fx:id="pressure" editable="false" layoutX="125.0" layoutY="242.0" prefHeight="25.0" prefWidth="241.0" promptText="Air pressure" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
+      <TextField fx:id="newID" layoutX="102.0" layoutY="419.0" onAction="#submitNewId" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
+      <Button layoutX="348.0" layoutY="419.0" mnemonicParsing="false" onAction="#submitNewId" text="Submit">
+        <effect>
+          <DropShadow blurType="GAUSSIAN" height="40.0" radius="19.5" width="40.0">
+            <color>
+              <Color red="0.9819494485855103" green="1.0" />
+            </color>
+          </DropShadow>
+        </effect>
+      </Button>
+      <ImageView fitHeight="52.0" fitWidth="63.0" layoutX="38.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@Images/Sensemap_logo.png" />
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="40.0" layoutX="74.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@Images/Thermometer.png" />
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="74.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@Images/Valve_pressure.png" />
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="80.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@Images/Raindrop.png" />
+      </ImageView>
+    </AnchorPane>
+  </Tab>
+  <Tab text="Temperature">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <LineChart fx:id="tempDiagram" layoutY="14.0" prefHeight="392.0" prefWidth="412.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+    </AnchorPane>
+  </Tab>
+  <Tab text="CO2">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+  </Tab>
+  <Tab text="Air Pressure">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+  </Tab>
+</TabPane>
