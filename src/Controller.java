@@ -1,10 +1,9 @@
-import java.beans.beancontext.BeanContextChild;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -56,20 +55,19 @@ public class Controller implements Observer {
     private TextField newID;
 
     @FXML
-    private LineChart<String, Number> tempDiagram;
-
-    @FXML
     private TabPane tabPane;
 
     private String senseBoxId;
 
     private Messstation messstation;
 
+    private ArrayList<LineChart<String, Number>> charts = new ArrayList<>();
+
     @FXML
     public void submitNewId(ActionEvent actionEvent) {
         newID.setText(newID.getText().toLowerCase());
 
-        if (newID.getText().length() == 24 || newID.getText().equals("sim")) {
+        if (newID.getText().length() == 24  || newID.getText().equals("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
             messstationInitialisieren();
@@ -90,7 +88,6 @@ public class Controller implements Observer {
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'view.fxml'.";
         assert pressure != null : "fx:id=\"pressure\" was not injected: check your FXML file 'view.fxml'.";
         assert newID != null : "fx:id=\"newID\" was not injected: check your FXML file 'view.fxml'.";
-        assert tempDiagram != null : "fx:id=\"tempDiagram\" was not injected: check your FXML file 'view.fxml'.";
         assert tabPane != null : "fx:id=\"tabPane\" was not injected: check your FXML file 'view.fxml'.";
 
         senseBoxId = "607db857542eeb001cba21f0";
@@ -107,13 +104,13 @@ public class Controller implements Observer {
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
 
-        float newHue2 = (float) ((pressureData.getAktWert() + 900) / (1400 + 900) * (0 - 270) + 270);
-        Color newFill2 = Color.hsb(newHue2, 1, 1);
+        float newHue2 = (float) ((pressureData.getAktWert()+900)/(1400+900) * (0-270) + 270);
+        Color newFill2 = Color.hsb(newHue2,1,1);
         light2.setFill(newFill2);
         light2.setEffect(new DropShadow(40, newFill2));
 
-        float newHue3 = (float) ((humidityData.getAktWert() + 0) / (100 + 0) * (0 - 270) + 270);
-        Color newFill3 = Color.hsb(newHue3, 1, 1);
+        float newHue3 = (float) ((humidityData.getAktWert() + 0)/(100+0) * (0-270) + 270);
+        Color newFill3 = Color.hsb(newHue3,1,1);
         light3.setFill(newFill3);
         light3.setEffect(new DropShadow(40, newFill3));
     }
@@ -125,11 +122,12 @@ public class Controller implements Observer {
 
         ArrayList<Messreihe> messreihen = messstation.getMessreihen();
 
-        for (Messreihe m : messreihen) {
+        for (Messreihe m : messreihen){
             Tab newTab = new Tab();
             newTab.setText(m.getTitel());
 
-            LineChart<Number, Number> chart = new LineChart(new NumberAxis(), new NumberAxis());
+            LineChart<String, Number> chart = new LineChart(new CategoryAxis(), new NumberAxis());
+            charts.add(chart);
 
             newTab.setContent(chart);
             tabPane.getTabs().add(newTab);
@@ -174,13 +172,16 @@ public class Controller implements Observer {
     }
 
     public void updateDiagrams() {
-        XYChart.Series series = new XYChart.Series();
-        for (int i = temperatureData.getMessungen().size() - 1; i >= temperatureData.getMessungen().size() - 10; i--) {
-            Messung m = temperatureData.getMessungen().get(i);
-            series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
-             /*System.out.println(m.getErzeugtAm());*/
-        }
+        for (int i = 0; i < messstation.getMessreihen().size() ; i++) {
+            Messreihe r = messstation.getMessreihen().get(i);
+            XYChart.Series series = new XYChart.Series();
+            for (int j = r.getMessungen().size() - 1; j >= r.getMessungen().size() - 1000; j -= 100) {
+                Messung m = r.getMessungen().get(j);
+                series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
+                /*System.out.println(m.getErzeugtAm());*/
+            }
 
-        tempDiagram.getData().addAll(series);
+            charts.get(i).getData().addAll(series);
+        }
     }
 }

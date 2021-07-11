@@ -95,41 +95,4 @@
       </ImageView>
     </AnchorPane>
   </Tab>
-  <Tab text="Temperature">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-         <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
-            <image>
-               <Image url="@Images/background.gif" />
-            </image>
-         </ImageView>
-      <LineChart fx:id="tempDiagram" layoutY="14.0" prefHeight="392.0" prefWidth="412.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
-    </AnchorPane>
-  </Tab>
-  <Tab text="CO2">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
-               <image>
-                  <Image url="@Images/background.gif" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-  </Tab>
-  <Tab text="Air Pressure">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true">
-               <image>
-                  <Image url="@Images/background.gif" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-  </Tab>
 </TabPane>
