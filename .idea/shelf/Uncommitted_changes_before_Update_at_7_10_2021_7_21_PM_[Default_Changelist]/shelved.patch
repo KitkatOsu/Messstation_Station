@@ -1,0 +1,30 @@
+Index: src/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.stage.Stage;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.Parent;\r\n\r\npublic class App extends Application {\r\n\r\n    @Override\r\n    public void start(Stage primaryStage) throws Exception {\r\n        // Darstellung als fxml-Datei\r\n        Parent root = FXMLLoader.load(getClass().getResource(\"tabPage.fxml\"));\r\n\r\n        // Fenster erstellen und anzeigen\r\n        Scene scene = new Scene(root);\r\n        //scene.getRoot().setStyle(\"-fx-base:black\");\r\n        //scene.getStylesheets().add(getClass().getResource(\"style.css\").toExternalForm());\r\n        primaryStage.setScene(scene);\r\n        primaryStage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch(args);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/App.java b/src/App.java
+--- a/src/App.java	(revision 7be4788b9c2e3e4aa9288da360b6e2bd7429ad88)
++++ b/src/App.java	(date 1625664114728)
+@@ -22,4 +22,17 @@
+     public static void main(String[] args) {
+         launch(args);
+     }
+-}
+\ No newline at end of file
++}
++
++
++
++
++
++
++
++
++
++
++
++
++
