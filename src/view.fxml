@@ -103,7 +103,7 @@
          </ImageView>
       <LineChart fx:id="tempDiagram" layoutY="14.0" prefHeight="392.0" prefWidth="412.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <NumberAxis side="BOTTOM" />
         </xAxis>
         <yAxis>
           <NumberAxis side="LEFT" />
