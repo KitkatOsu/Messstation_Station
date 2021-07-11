@@ -1,6 +1,8 @@
+import java.beans.beancontext.BeanContextChild;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
@@ -15,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import sensemapintegration.Messreihe;
 import sensemapintegration.Messstation;
+import sensemapintegration.Messung;
 import sensemapintegration.Observer;
 
 public class Controller implements Observer {
@@ -66,7 +69,7 @@ public class Controller implements Observer {
     public void submitNewId(ActionEvent actionEvent) {
         newID.setText(newID.getText().toLowerCase());
 
-        if (newID.getText().length() == 24  || newID.getText().equals("sim")) {
+        if (newID.getText().length() == 24 || newID.getText().equals("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
             messstationInitialisieren();
@@ -104,13 +107,13 @@ public class Controller implements Observer {
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
 
-        float newHue2 = (float) ((pressureData.getAktWert()+900)/(1400+900) * (0-270) + 270);
-        Color newFill2 = Color.hsb(newHue2,1,1);
+        float newHue2 = (float) ((pressureData.getAktWert() + 900) / (1400 + 900) * (0 - 270) + 270);
+        Color newFill2 = Color.hsb(newHue2, 1, 1);
         light2.setFill(newFill2);
         light2.setEffect(new DropShadow(40, newFill2));
 
-        float newHue3 = (float) ((humidityData.getAktWert() + 0)/(100+0) * (0-270) + 270);
-        Color newFill3 = Color.hsb(newHue3,1,1);
+        float newHue3 = (float) ((humidityData.getAktWert() + 0) / (100 + 0) * (0 - 270) + 270);
+        Color newFill3 = Color.hsb(newHue3, 1, 1);
         light3.setFill(newFill3);
         light3.setEffect(new DropShadow(40, newFill3));
     }
@@ -122,7 +125,7 @@ public class Controller implements Observer {
 
         ArrayList<Messreihe> messreihen = messstation.getMessreihen();
 
-        for (Messreihe m : messreihen){
+        for (Messreihe m : messreihen) {
             Tab newTab = new Tab();
             newTab.setText(m.getTitel());
 
@@ -170,21 +173,13 @@ public class Controller implements Observer {
 
     }
 
-    public void updateDiagrams(){
+    public void updateDiagrams() {
         XYChart.Series series = new XYChart.Series();
-
-        series.getData().add(new XYChart.Data(1, 1));
-        series.getData().add(new XYChart.Data(2, 2));
-        series.getData().add(new XYChart.Data(3, 3));
-        series.getData().add(new XYChart.Data(4, 4));
-        series.getData().add(new XYChart.Data(5, 5));
-        series.getData().add(new XYChart.Data(6, 6));
-        series.getData().add(new XYChart.Data(7, 7));
-        series.getData().add(new XYChart.Data(8, 8));
-        series.getData().add(new XYChart.Data(9, 9));
-        series.getData().add(new XYChart.Data(10, 10));
-        series.getData().add(new XYChart.Data(11, 11));
-        series.getData().add(new XYChart.Data(12, 12));
+        for(int i =temperatureData.getMessungen().size()-51; i<temperatureData.getMessungen().size(); i++) {
+            Messung m = temperatureData.getMessungen().get(i);
+            series.getData().add(new XYChart.Data(i*100, m.getWert()));
+          /*  System.out.println(m.getErzeugtAm()); */
+        }
 
         tempDiagram.getData().addAll(series);
     }

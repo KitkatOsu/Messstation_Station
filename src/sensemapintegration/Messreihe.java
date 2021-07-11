@@ -75,4 +75,8 @@ public class Messreihe
     public String getEinheit() {
         return einheit;
     }
+
+    public ArrayList<Messung> getMessungen() {
+        return messungen;
+    }
 }

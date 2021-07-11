@@ -109,7 +109,6 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-         <ImageView fitHeight="532.0" fitWidth="440.0" pickOnBounds="true" />
     </AnchorPane>
   </Tab>
   <Tab text="CO2">
