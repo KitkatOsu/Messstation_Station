@@ -1,11 +1,16 @@
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import sensemapintegration.Messreihe;
@@ -50,6 +55,9 @@ public class Controller implements Observer {
     @FXML
     private LineChart<?, ?> tempDiagram;
 
+    @FXML
+    private TabPane tabPane;
+
     private String senseBoxId;
 
     private Messstation messstation;
@@ -80,6 +88,7 @@ public class Controller implements Observer {
         assert pressure != null : "fx:id=\"pressure\" was not injected: check your FXML file 'view.fxml'.";
         assert newID != null : "fx:id=\"newID\" was not injected: check your FXML file 'view.fxml'.";
         assert tempDiagram != null : "fx:id=\"tempDiagram\" was not injected: check your FXML file 'view.fxml'.";
+        assert tabPane != null : "fx:id=\"tabPane\" was not injected: check your FXML file 'view.fxml'.";
 
         senseBoxId = "607db857542eeb001cba21f0";
 //        senseBoxId = "sim";
@@ -100,7 +109,7 @@ public class Controller implements Observer {
         light2.setFill(newFill2);
         light2.setEffect(new DropShadow(40, newFill2));
 
-        float newHue3 = (float) ((humidityData.getAktWert()+ 0)/(100+0) * (0-270) + 270);
+        float newHue3 = (float) ((humidityData.getAktWert() + 0)/(100+0) * (0-270) + 270);
         Color newFill3 = Color.hsb(newHue3,1,1);
         light3.setFill(newFill3);
         light3.setEffect(new DropShadow(40, newFill3));
@@ -110,6 +119,18 @@ public class Controller implements Observer {
         messstation = new Messstation(senseBoxId);
         messstation.addObserver(this);
         messstation.startTimer();
+
+        ArrayList<Messreihe> messreihen = messstation.getMessreihen();
+
+        for (Messreihe m : messreihen){
+            Tab newTab = new Tab();
+            newTab.setText(m.getTitel());
+
+            LineChart<Number, Number> chart = new LineChart(new NumberAxis(), new NumberAxis());
+
+            newTab.setContent(chart);
+            tabPane.getTabs().add(newTab);
+        }
 
         temperatureData = messstation.getMessreiheMitEinheit("°C");
         if (temperatureData == null)
