@@ -9,9 +9,13 @@
 
 <Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532.0" prefWidth="440.0" style="-fx-background-color: #36393f;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller1">
    <children>
+      <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Background.png" />
+         </image></ImageView>
       <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
-            <DropShadow radius="40.0" >
+            <DropShadow radius="40.0">
                <color>
                   <Color red="1.0" />
                </color>
@@ -19,7 +23,7 @@
          </effect></Circle>
       <Circle fx:id="light2" fill="#f8ff21" layoutX="94.0" layoutY="255.0" radius="20.0" stroke="TRANSPARENT">
          <effect>
-            <DropShadow radius="40.0" >
+            <DropShadow radius="40.0">
                <color>
                   <Color red="0.8166666626930237" green="1.0" />
                </color>

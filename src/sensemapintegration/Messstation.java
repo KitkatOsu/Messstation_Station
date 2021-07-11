@@ -47,10 +47,17 @@ public class Messstation {
             @Override
             public void run() {
                 m.aktuelleMesswerteEinlesen();
+                m.updateAll();
             }
         };
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(updater, 1, 10000);
+    }
+
+    private void updateAll() {
+        for(Observer o : observers){
+            o.update();
+        }
     }
 
     public void aktuelleMesswerteEinlesen() {
@@ -58,20 +65,13 @@ public class Messstation {
             Messung m = map.getAktMessung(s.getSensorId());
             s.eineMessungHinzufuegen(m);
         }
-
-        for(Observer o : observers){
-            o.update();
-        }
     }
 
     public void messreihenEinlesen() {
         for (Messreihe s : messreihen) {
             s.messungenHinzufuegen(map.getVieleMessungen(s.getSensorId()));
         }
-
-        for(Observer o : observers){
-            o.update();
-        }
+        updateAll();
     }
 
     private void basisinfosAusSenseMapEinlesen() {
