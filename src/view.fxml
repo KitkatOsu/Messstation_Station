@@ -14,6 +14,26 @@
             <image>
                <Image url="@Images/background.gif" />
             </image></ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="363.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/pfp4.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="402.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/pfp1.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="52.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/80386108.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="14.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/a_b5eb1d841dc978c42d64ff540f8787bd.gif" />
+            </image>
+         </ImageView>
 <!--      <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true"-->
 <!--                 preserveRatio="true">-->
 <!--        <Image url="@Images/Background.png"/>-->
@@ -45,11 +65,6 @@
           </DropShadow>
         </effect>
       </Circle>
-      <TextField fx:id="searchbar" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="300.0" promptText="Searchbar" style="-fx-prompt-text-fill: black; -fx-background-color: lightgrey;">
-        <effect>
-          <DropShadow />
-        </effect>
-      </TextField>
       <TextField fx:id="temperature" editable="false" layoutX="124.0" layoutY="188.0" prefHeight="25.0" prefWidth="241.0" promptText="Temperature" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
         <effect>
           <DropShadow />
@@ -91,8 +106,16 @@
       <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="80.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@Images/Raindrop.png" />
       </ImageView>
-         <ToggleButton fx:id="lightmodeswitch" layoutX="152.0" layoutY="458.0" mnemonicParsing="false" onAction="#changeTheme" text="Switch Light/Darkmode" />
-         <ImageView fitHeight="150.0" fitWidth="440.0" layoutX="3.0" layoutY="-39.0" pickOnBounds="true">
+      <ToggleButton fx:id="lightmodeswitch" layoutX="152.0" layoutY="458.0" mnemonicParsing="false" onAction="#changeTheme" style="-fx-background-color: dimgrey;" text="Switch Light/Darkmode">
+      <effect>
+        <DropShadow height="58.68" radius="27.5125" spread="0.55" width="53.37">
+          <color>
+            <Color green="0.7725631594657898" blue="1.0" />
+          </color>
+        </DropShadow>
+      </effect>
+      </ToggleButton>
+      <ImageView fitHeight="149.0" fitWidth="440.0" pickOnBounds="true">
             <image>
                <Image url="@Images/Name.png" />
             </image></ImageView>
