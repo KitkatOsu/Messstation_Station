@@ -109,17 +109,17 @@ public class Controller implements Observer {
 
     public void changeLightColors() {
         // Formula: Y = (X-A)/(B-A) * (D-C) + C
-        float newHue1 = (float) ((temperatureData.getAktWert() + 10) / (55 + 10) * (0 - 270) + 270);
+        float newHue1 = (float) ((temperatureData.getAktWert() - temperatureData.getMinWert()) / (temperatureData.getMaxWert() - temperatureData.getMinWert()) * (0 - 270) + 270);
         Color newFill1 = Color.hsb(newHue1, 1, 1);
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
 
-        float newHue2 = (float) ((pressureData.getAktWert()+900)/(1400+900) * (0-270) + 270);
+        float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0-270) + 270);
         Color newFill2 = Color.hsb(newHue2,1,1);
         light2.setFill(newFill2);
         light2.setEffect(new DropShadow(40, newFill2));
 
-        float newHue3 = (float) ((humidityData.getAktWert() + 0)/(100+0) * (0-270) + 270);
+        float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0-270) + 270);
         Color newFill3 = Color.hsb(newHue3,1,1);
         light3.setFill(newFill3);
         light3.setEffect(new DropShadow(40, newFill3));
@@ -164,10 +164,10 @@ public class Controller implements Observer {
     public void update() {
         updateTextfields();
         changeLightColors();
-        for (LineChart<String, Number> c : charts){
-            c.getData().clear();
-        }
-        updateDiagrams();
+//        for (LineChart<String, Number> c : charts){
+//            c.getData().clear();
+//        }
+//        updateDiagrams();
     }
 
     private void updateTextfields() {

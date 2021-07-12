@@ -62,14 +62,14 @@ public class Messreihe
         }
     }
     
-    public String getMaxWert()
+    public double getMaxWert()
     {
-        return Auswertungen.max(messungen) + "";
+        return Auswertungen.max(messungen);
     }
 
-    public String getMinWert()
+    public double getMinWert()
     {
-        return Auswertungen.min(messungen) + "";
+        return Auswertungen.min(messungen);
     }
 
     public String getEinheit() {

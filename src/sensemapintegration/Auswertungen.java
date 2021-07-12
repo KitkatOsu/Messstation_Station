@@ -14,7 +14,7 @@ public class Auswertungen
            if (m.getWert() > max)
            {
                max = m.getWert();
-            }
+           }
         }
         return max;
     }
@@ -27,7 +27,7 @@ public class Auswertungen
            if (m.getWert() <  min)
            {
                min = m.getWert();
-            }
+           }
         }
         return min;
     }
