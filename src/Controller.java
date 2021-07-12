@@ -1,3 +1,20 @@
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import sensemapintegration.Auswertungen;
+import sensemapintegration.Messreihe;
+import sensemapintegration.Messstation;
+import sensemapintegration.Observer;
+
 import java.awt.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -5,23 +22,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import sensemapintegration.*;
 
 public class Controller implements Observer {
 
@@ -112,20 +112,25 @@ public class Controller implements Observer {
 
     public void changeLightColors() {
         // Formula: Y = (X-A)/(B-A) * (D-C) + C
-        float newHue1 = (float) ((temperatureData.getAktWert() - temperatureData.getMinWert()) / (temperatureData.getMaxWert() - temperatureData.getMinWert()) * (0 - 270) + 270);
-        Color newFill1 = Color.hsb(newHue1, 1, 1);
-        light1.setFill(newFill1);
-        light1.setEffect(new DropShadow(40, newFill1));
+        if (temperatureData.getEinheit() != "N/A") {
+            float newHue1 = (float) ((temperatureData.getAktWert() - temperatureData.getMinWert()) / (temperatureData.getMaxWert() - temperatureData.getMinWert()) * (0 - 270) + 270);
+            Color newFill1 = Color.hsb(newHue1, 1, 1);
+            light1.setFill(newFill1);
+            light1.setEffect(new DropShadow(40, newFill1));
+        }
 
-        float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0 - 270) + 270);
-        Color newFill2 = Color.hsb(newHue2, 1, 1);
-        light2.setFill(newFill2);
-        light2.setEffect(new DropShadow(40, newFill2));
-
-        float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0 - 270) + 270);
-        Color newFill3 = Color.hsb(newHue3, 1, 1);
-        light3.setFill(newFill3);
-        light3.setEffect(new DropShadow(40, newFill3));
+        if (pressureData.getEinheit() != "N/A") {
+            float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0 - 270) + 270);
+            Color newFill2 = Color.hsb(newHue2, 1, 1);
+            light2.setFill(newFill2);
+            light2.setEffect(new DropShadow(40, newFill2));
+        }
+        if (humidityData.getEinheit() != "N/A") {
+            float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0 - 270) + 270);
+            Color newFill3 = Color.hsb(newHue3, 1, 1);
+            light3.setFill(newFill3);
+            light3.setEffect(new DropShadow(40, newFill3));
+        }
     }
 
     private void messstationInitialisieren() {
@@ -189,40 +194,32 @@ public class Controller implements Observer {
     }
 
     public void updateDiagrams() {
-//        for (int i = 0; i < messstation.getMessreihen().size(); i++) {
-//
-//            Messreihe r = messstation.getMessreihen().get(i);
-//            XYChart.Series series = new XYChart.Series();
-//            for (int j = r.getMessungen().size() - 1; j >= r.getMessungen().size() - 1000; j -= 100) {
-//                Messung m = r.getMessungen().get(j);
-//                series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
-//                /*System.out.println(m.getErzeugtAm());*/
-//            }
-//            series.setName(r.getTitel());
-//            charts.get(i).getData().addAll(series);
-//        }
 
         for (int i = 0; i < messstation.getMessreihen().size(); i++) {
 
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
-            for (int j = 0 ; j<7 ; j++) {
-                Date currentDay = new Date();
-                Date dateToGetDataFrom = new Date(currentDay.getTime() - Duration.ofDays(j).toMillis());
+            for (int j = 0; j < 11; j++) {
+                Date currentDate = new Date();
+                Date dateToGetDataFrom = new Date(currentDate.getTime() - Duration.ofHours(4 * j).toMillis());
                 double averageValuesOfDate = Auswertungen.average(r.getMessungenAm(dateToGetDataFrom));
 
-                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'HH");
                 String str = ft.format(dateToGetDataFrom);
 
-                series.getData().add(new XYChart.Data(str, averageValuesOfDate));
+                if (averageValuesOfDate != -9999)
+                    series.getData().add(new XYChart.Data(str, averageValuesOfDate));
             }
+            series.setName(r.getTitel());
+            charts.get(i).getData().addAll(series);
         }
     }
 
     public void changeTheme(ActionEvent actionEvent) {
         try {
             Desktop.getDesktop().browse(new URL("https://blog.weekdone.com/why-you-should-switch-on-dark-mode/").toURI());
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
     }
 
 

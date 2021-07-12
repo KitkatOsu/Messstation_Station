@@ -69,7 +69,7 @@ public class Messreihe {
     }
 
     public ArrayList<Messung> getMessungenAm(Date date) {
-        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'HH");
         String str = ft.format(date);
 
         boolean reachedDate = false;
