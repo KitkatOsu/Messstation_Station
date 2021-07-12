@@ -7,29 +7,29 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="440.0" style="-fx-background-color: #36393f;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="532" prefWidth="440" style="-fx-background-color: #36393f;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <Tab text="Overview">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
-         <ImageView fitHeight="502.0" fitWidth="440.0" pickOnBounds="true">
+    <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
+         <ImageView fitHeight="507.0" fitWidth="440" pickOnBounds="true">
             <image>
                <Image url="@Images/background.gif" />
             </image></ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="363.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="363.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/pfp4.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="402.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="390.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/pfp1.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="52.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="52.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/80386108.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="14.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="26.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/a_b5eb1d841dc978c42d64ff540f8787bd.gif" />
             </image>

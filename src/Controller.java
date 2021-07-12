@@ -104,8 +104,6 @@ public class Controller implements Observer {
         }
 
         messstationInitialisieren();
-
-
     }
 
     public void changeLightColors() {
@@ -162,6 +160,8 @@ public class Controller implements Observer {
 
 
             newTab.setContent(pane);
+            tabPane.setTabMaxHeight(532);
+            tabPane.setTabMaxWidth(440);
             tabPane.getTabs().add(newTab);
 
         }
