@@ -164,22 +164,26 @@ public class Controller implements Observer {
             Label currentDataLabel = new Label("Current Value:");
             currentDataLabel.setTextFill(Color.WHITE);
             TextField currentDataTextField = new TextField();
+            currentDataTextField.setEditable(false);
             datas.get(0).add(currentDataTextField);
 
 
             Label minDataLabel = new Label("Minimum Value:");
             minDataLabel.setTextFill(Color.WHITE);
             TextField minDataTextField = new TextField();
+            minDataTextField.setEditable(false);
             datas.get(1).add(minDataTextField);
 
             Label maxDataLabel = new Label("Maximimum Value:");
             maxDataLabel.setTextFill(Color.WHITE);
             TextField maxDataTextField = new TextField();
+            maxDataTextField.setEditable(false);
             datas.get(2).add(maxDataTextField);
 
             Label averageDataLabel = new Label("Average Value:");
             averageDataLabel.setTextFill(Color.WHITE);
             TextField averageDataTextField = new TextField();
+            averageDataTextField.setEditable(false);
             datas.get(3).add(averageDataTextField);
 
 
@@ -251,6 +255,7 @@ public class Controller implements Observer {
             humidity.setText(humidityData.getAktWert() + humidityData.getEinheit());
         else
             humidity.setText(humidityData.getEinheit());
+
 
     }
 
