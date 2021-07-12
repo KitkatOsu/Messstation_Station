@@ -1,7 +1,5 @@
 package sensemapintegration;
 
-import javafx.beans.Observable;
-
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,8 +16,7 @@ public class Messstation {
     public Messstation(String senseBoxId) {
         if (senseBoxId.equals("sim")) {
             map = new SenseMapSimulation();
-        }
-        else {
+        } else {
             map = new OpenSenseMap(senseBoxId);
         }
 
@@ -34,28 +31,36 @@ public class Messstation {
         observers.add(o);
     }
 
-    public void stopTimer(){
+    public void stopTimer() {
         updater.cancel();
     }
 
     public void startTimer() {
         Messstation a = this;
-        updater = new TimerTask() {
-
-            Messstation m = a;
-
+        Thread timerthread = new Thread() {
             @Override
             public void run() {
-                m.aktuelleMesswerteEinlesen();
-                m.updateAll();
+                updater = new TimerTask() {
+
+                    Messstation m = a;
+
+                    @Override
+                    public void run() {
+                        m.aktuelleMesswerteEinlesen();
+                        m.updateAll();
+                    }
+                };
+                Timer timer = new Timer();
+                timer.scheduleAtFixedRate(updater, 1, 100000);
             }
+
         };
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(updater, 1, 10000);
+
+
     }
 
     private void updateAll() {
-        for(Observer o : observers){
+        for (Observer o : observers) {
             o.update();
         }
     }

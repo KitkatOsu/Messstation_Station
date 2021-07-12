@@ -14,6 +14,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import sensemapintegration.Messreihe;
 import sensemapintegration.Messstation;
 import sensemapintegration.Messung;
@@ -62,6 +63,10 @@ public class Controller implements Observer {
     private Messstation messstation;
 
     private ArrayList<LineChart<String, Number>> charts = new ArrayList<>();
+    private ArrayList<Tab> tabs = new ArrayList<>();
+
+
+
 
     @FXML
     public void submitNewId(ActionEvent actionEvent) {
@@ -70,6 +75,11 @@ public class Controller implements Observer {
         if (newID.getText().length() == 24  || newID.getText().equals("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
+
+            tabs.clear();
+            charts.clear();
+            tabPane.getTabs().remove(1,tabPane.getTabs().size());
+
             messstationInitialisieren();
             temperature.clear();
             pressure.clear();
@@ -94,7 +104,7 @@ public class Controller implements Observer {
 //        senseBoxId = "sim";
 
         messstationInitialisieren();
-        updateDiagrams();
+//        updateDiagrams();
     }
 
     public void changeLightColors() {
@@ -123,14 +133,16 @@ public class Controller implements Observer {
         ArrayList<Messreihe> messreihen = messstation.getMessreihen();
 
         for (Messreihe m : messreihen){
-            Tab newTab = new Tab();
-            newTab.setText(m.getTitel());
+            Tab newTab = new Tab(m.getTitel());
+            tabs.add(newTab);
 
             LineChart<String, Number> chart = new LineChart(new CategoryAxis(), new NumberAxis());
             charts.add(chart);
 
+
             newTab.setContent(chart);
             tabPane.getTabs().add(newTab);
+
         }
 
         temperatureData = messstation.getMessreiheMitEinheit("°C");
@@ -144,12 +156,18 @@ public class Controller implements Observer {
         humidityData = messstation.getMessreiheMitEinheit("%");
         if (humidityData == null)
             humidityData = new Messreihe("N/A", "rel. Luftfeuchte", "N/A");
+
+        updateDiagrams();
     }
 
     @Override
     public void update() {
         updateTextfields();
         changeLightColors();
+        for (LineChart<String, Number> c : charts){
+            c.getData().clear();
+        }
+        updateDiagrams();
     }
 
     private void updateTextfields() {
@@ -172,7 +190,9 @@ public class Controller implements Observer {
     }
 
     public void updateDiagrams() {
+
         for (int i = 0; i < messstation.getMessreihen().size() ; i++) {
+
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
             for (int j = r.getMessungen().size() - 1; j >= r.getMessungen().size() - 1000; j -= 100) {
@@ -180,7 +200,7 @@ public class Controller implements Observer {
                 series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
                 /*System.out.println(m.getErzeugtAm());*/
             }
-
+            series.setName(r.getTitel());
             charts.get(i).getData().addAll(series);
         }
     }
