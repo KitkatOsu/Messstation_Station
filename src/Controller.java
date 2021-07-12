@@ -43,9 +43,6 @@ public class Controller implements Observer {
     private Circle light3;
 
     @FXML
-    private TextField searchbar;
-
-    @FXML
     private TextField temperature;
     private Messreihe temperatureData;
 
@@ -97,7 +94,6 @@ public class Controller implements Observer {
         assert light1 != null : "fx:id=\"light1\" was not injected: check your FXML file 'view.fxml'.";
         assert light2 != null : "fx:id=\"light2\" was not injected: check your FXML file 'view.fxml'.";
         assert light3 != null : "fx:id=\"light3\" was not injected: check your FXML file 'view.fxml'.";
-        assert searchbar != null : "fx:id=\"searchbar\" was not injected: check your FXML file 'view.fxml'.";
         assert temperature != null : "fx:id=\"temperature\" was not injected: check your FXML file 'view.fxml'.";
         assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'view.fxml'.";
         assert pressure != null : "fx:id=\"pressure\" was not injected: check your FXML file 'view.fxml'.";
