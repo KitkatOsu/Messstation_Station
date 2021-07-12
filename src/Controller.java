@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -199,4 +200,12 @@ public class Controller implements Observer {
             charts.get(i).getData().addAll(series);
         }
     }
+
+    public void changeTheme(ActionEvent actionEvent) {
+        try {
+            Desktop.getDesktop().browse(new URL("https://blog.weekdone.com/why-you-should-switch-on-dark-mode/").toURI());
+        } catch (Exception e) {}
+    }
+
+
 }

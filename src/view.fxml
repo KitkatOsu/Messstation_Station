@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -8,7 +7,6 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 
-<?import com.sun.javafx.scene.control.DatePickerContent?>
 <TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="440.0" style="-fx-background-color: #36393f;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <Tab text="Overview">
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="418.0">
@@ -93,6 +91,11 @@
       <ImageView fitHeight="39.0" fitWidth="32.0" layoutX="80.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@Images/Raindrop.png" />
       </ImageView>
+         <ToggleButton fx:id="lightmodeswitch" layoutX="152.0" layoutY="458.0" mnemonicParsing="false" onAction="#changeTheme" text="Switch Light/Darkmode" />
+         <ImageView fitHeight="150.0" fitWidth="440.0" layoutX="3.0" layoutY="-39.0" pickOnBounds="true">
+            <image>
+               <Image url="@Images/Name.png" />
+            </image></ImageView>
     </AnchorPane>
   </Tab>
 </TabPane>
