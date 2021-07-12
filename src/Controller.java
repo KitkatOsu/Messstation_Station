@@ -1,23 +1,14 @@
-import java.awt.*;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import sensemapintegration.Auswertungen;
@@ -31,17 +22,8 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.ResourceBundle;
-
-import javax.swing.*;
 
 public class Controller implements Observer {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Circle light1;
@@ -79,6 +61,7 @@ public class Controller implements Observer {
 
     private ArrayList<LineChart<String, Number>> charts = new ArrayList<>();
     private ArrayList<Tab> tabs = new ArrayList<>();
+    private ArrayList<ArrayList<TextField>> datas = new ArrayList<>(); //0 currentData, 1 min, 2 max, 3 average
 
 
     @FXML
@@ -116,6 +99,9 @@ public class Controller implements Observer {
         senseBoxId = "607db857542eeb001cba21f0";
 //        senseBoxId = "sim";
 
+        for (int i = 0; i < 4; i++) {
+            datas.add(new ArrayList<TextField>());
+        }
 
         messstationInitialisieren();
 
@@ -124,20 +110,20 @@ public class Controller implements Observer {
 
     public void changeLightColors() {
         // Formula: Y = (X-A)/(B-A) * (D-C) + C
-        if (temperatureData.getEinheit() != "N/A") {
+        if (!temperatureData.getEinheit().equals("N/A")) {
             float newHue1 = (float) ((temperatureData.getAktWert() - temperatureData.getMinWert()) / (temperatureData.getMaxWert() - temperatureData.getMinWert()) * (0 - 270) + 270);
             Color newFill1 = Color.hsb(newHue1, 1, 1);
             light1.setFill(newFill1);
             light1.setEffect(new DropShadow(40, newFill1));
         }
 
-        if (pressureData.getEinheit() != "N/A") {
+        if (!pressureData.getEinheit().equals("N/A")) {
             float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0 - 270) + 270);
             Color newFill2 = Color.hsb(newHue2, 1, 1);
             light2.setFill(newFill2);
             light2.setEffect(new DropShadow(40, newFill2));
         }
-        if (humidityData.getEinheit() != "N/A") {
+        if (!humidityData.getEinheit().equals("N/A")) {
             float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0 - 270) + 270);
             Color newFill3 = Color.hsb(newHue3, 1, 1);
             light3.setFill(newFill3);
@@ -155,12 +141,27 @@ public class Controller implements Observer {
         for (Messreihe m : messreihen) {
             Tab newTab = new Tab(m.getTitel());
             tabs.add(newTab);
+            StackPane pane = new StackPane();
+
 
             LineChart<String, Number> chart = new LineChart(new CategoryAxis(), new NumberAxis());
+            chart.setMaxSize(430, 400);
+
+            TextField currentData = new TextField();
+            datas.get(0).add(currentData);
+            TextField minData = new TextField();
+            datas.get(1).add(minData);
+            TextField maxData = new TextField();
+            datas.get(2).add(maxData);
+            TextField averageData = new TextField();
+            datas.get(3).add(averageData);
+
+            pane.getChildren().addAll(currentData, minData, maxData, averageData);
+            pane.getChildren().add(chart);
             charts.add(chart);
 
 
-            newTab.setContent(chart);
+            newTab.setContent(pane);
             tabPane.getTabs().add(newTab);
 
         }
