@@ -14,6 +14,26 @@
             <image>
                <Image url="@Images/background.gif" />
             </image></ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="261.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/pfp4.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="343.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/pfp1.jpg" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="169.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/pfp2.gif" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="82.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Images/a_b5eb1d841dc978c42d64ff540f8787bd.gif" />
+            </image>
+         </ImageView>
 <!--      <ImageView fitHeight="532.0" fitWidth="440.0" opacity="0.41" pickOnBounds="true"-->
 <!--                 preserveRatio="true">-->
 <!--        <Image url="@Images/Background.png"/>-->
@@ -45,11 +65,6 @@
           </DropShadow>
         </effect>
       </Circle>
-      <TextField fx:id="searchbar" layoutX="70.0" layoutY="86.0" prefHeight="25.0" prefWidth="300.0" promptText="Searchbar" style="-fx-prompt-text-fill: black; -fx-background-color: lightgrey;">
-        <effect>
-          <DropShadow />
-        </effect>
-      </TextField>
       <TextField fx:id="temperature" editable="false" layoutX="124.0" layoutY="188.0" prefHeight="25.0" prefWidth="241.0" promptText="Temperature" style="-fx-background-color: lightgrey;-fx-prompt-text-fill: black;">
         <effect>
           <DropShadow />
@@ -100,7 +115,7 @@
         </DropShadow>
       </effect>
       </ToggleButton>
-      <ImageView fitHeight="150.0" fitWidth="440.0" layoutX="3.0" layoutY="-39.0" pickOnBounds="true">
+      <ImageView fitHeight="149.0" fitWidth="440.0" layoutY="-24.0" pickOnBounds="true">
             <image>
                <Image url="@Images/Name.png" />
             </image></ImageView>

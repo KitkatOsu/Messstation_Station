@@ -23,6 +23,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import sensemapintegration.*;
 
+import javax.swing.*;
+
 public class Controller implements Observer {
 
     @FXML
@@ -206,7 +208,7 @@ public class Controller implements Observer {
 
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
-            for (int j = 0 ; j<7 ; j++) {
+            for (int j = 0; j < 7; j++) {
                 Date currentDay = new Date();
                 Date dateToGetDataFrom = new Date(currentDay.getTime() - Duration.ofDays(j).toMillis());
                 double averageValuesOfDate = Auswertungen.average(r.getMessungenAm(dateToGetDataFrom));
