@@ -66,7 +66,7 @@ public class Controller implements Observer {
 
     private ArrayList<LineChart<String, Number>> charts = new ArrayList<>();
     private ArrayList<Tab> tabs = new ArrayList<>();
-    private ArrayList<ArrayList<TextField>> datas = new ArrayList<>(); //0 currentData, 1 min, 2 max, 3 average
+    private ArrayList<TextField[]> textFieldsForTabs = new ArrayList<>(); //0 current, 1 min, 2 max, 3 average
 
 
     @FXML
@@ -105,9 +105,7 @@ public class Controller implements Observer {
         senseBoxId = "607db857542eeb001cba21f0";
 //        senseBoxId = "sim";
 
-        for (int i = 0; i < 4; i++) {
-            datas.add(new ArrayList<TextField>());
-        }
+
 
         messstationInitialisieren();
 
@@ -139,13 +137,16 @@ public class Controller implements Observer {
 
     private void messstationInitialisieren() {
         messstation = new Messstation(senseBoxId);
+        for (int i = 0; i < messstation.getMessreihen().size(); i++)
+            textFieldsForTabs.add(new TextField[4]);
+
         messstation.addObserver(this);
-        messstation.startTimer();
+
 
         ArrayList<Messreihe> messreihen = messstation.getMessreihen();
 
-        for (Messreihe m : messreihen) {
-            Tab newTab = new Tab(m.getTitel());
+        for (int i = 0; i < messreihen.size(); i++) {
+            Tab newTab = new Tab(messreihen.get(i).getTitel());
             tabs.add(newTab);
             VBox vb = new VBox();
             vb.setSpacing(30);
@@ -161,26 +162,26 @@ public class Controller implements Observer {
             currentDataLabel.setTextFill(Color.WHITE);
             TextField currentDataTextField = new TextField();
             currentDataTextField.setEditable(false);
-            datas.get(0).add(currentDataTextField);
+            textFieldsForTabs.get(i)[0] = currentDataTextField;
 
 
             Label minDataLabel = new Label("Minimum Value:");
             minDataLabel.setTextFill(Color.WHITE);
             TextField minDataTextField = new TextField();
             minDataTextField.setEditable(false);
-            datas.get(1).add(minDataTextField);
+            textFieldsForTabs.get(i)[1] = minDataTextField;
 
             Label maxDataLabel = new Label("Maximimum Value:");
             maxDataLabel.setTextFill(Color.WHITE);
             TextField maxDataTextField = new TextField();
             maxDataTextField.setEditable(false);
-            datas.get(2).add(maxDataTextField);
+            textFieldsForTabs.get(i)[2] = maxDataTextField;
 
             Label averageDataLabel = new Label("Average Value:");
             averageDataLabel.setTextFill(Color.WHITE);
             TextField averageDataTextField = new TextField();
             averageDataTextField.setEditable(false);
-            datas.get(3).add(averageDataTextField);
+            textFieldsForTabs.get(i)[3] = averageDataTextField;
 
 
             HBox currentData = new HBox();
@@ -227,6 +228,8 @@ public class Controller implements Observer {
             humidityData = new Messreihe("N/A", "rel. Luftfeuchte", "N/A");
 
         updateDiagrams();
+
+        messstation.startTimer();
     }
 
     @Override
@@ -251,6 +254,17 @@ public class Controller implements Observer {
             humidity.setText(humidityData.getAktWert() + humidityData.getEinheit());
         else
             humidity.setText(humidityData.getEinheit());
+
+        for (int i = 0; i<messstation.getMessreihen().size();i++){
+            Messreihe r = messstation.getMessreihen().get(i);
+            String einheit = r.getEinheit();
+
+            textFieldsForTabs.get(i)[0].setText(r.getAktWert() + einheit);
+            textFieldsForTabs.get(i)[1].setText(r.getMinWert() + einheit);
+            textFieldsForTabs.get(i)[2].setText(r.getMaxWert() + einheit);
+            textFieldsForTabs.get(i)[3].setText(r.getAverageWert() + einheit);
+
+        }
 
 
     }
@@ -281,6 +295,7 @@ public class Controller implements Observer {
         try {
             Desktop.getDesktop().browse(new URL("https://blog.weekdone.com/why-you-should-switch-on-dark-mode/").toURI());
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

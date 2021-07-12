@@ -60,6 +60,10 @@ public class Messreihe {
         return Auswertungen.min(messungen);
     }
 
+    public double getAverageWert() {
+        return Auswertungen.average(messungen);
+    }
+
     public String getEinheit() {
         return einheit;
     }
@@ -71,6 +75,7 @@ public class Messreihe {
     public ArrayList<Messung> getMessungenAm(Date date) {
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd'T'HH");
         String str = ft.format(date);
+
 
         boolean reachedDate = false;
 
@@ -88,4 +93,6 @@ public class Messreihe {
 
         return messungenAm;
     }
+
+
 }

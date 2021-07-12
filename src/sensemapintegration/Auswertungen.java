@@ -36,6 +36,7 @@ public class Auswertungen {
         if (messungen.size() != 0)
             averageOfValues = sumOfMessungenValues / messungen.size();
 
-        return averageOfValues;
+        // this is to floor the number to 2 decimal values
+        return Math.floor(averageOfValues) + (Math.floor(averageOfValues*100)%100)/100;
     }
 }
