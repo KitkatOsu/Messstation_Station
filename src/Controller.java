@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -217,4 +218,12 @@ public class Controller implements Observer {
             }
         }
     }
+
+    public void changeTheme(ActionEvent actionEvent) {
+        try {
+            Desktop.getDesktop().browse(new URL("https://blog.weekdone.com/why-you-should-switch-on-dark-mode/").toURI());
+        } catch (Exception e) {}
+    }
+
+
 }
