@@ -48,7 +48,7 @@ public class Messstation {
             }
         };
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(updater, 1, 100000);
+        timer.scheduleAtFixedRate(updater, 1, 10000);
 
 
     }

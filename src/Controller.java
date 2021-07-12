@@ -1,6 +1,7 @@
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
@@ -66,19 +67,17 @@ public class Controller implements Observer {
     private ArrayList<Tab> tabs = new ArrayList<>();
 
 
-
-
     @FXML
     public void submitNewId(ActionEvent actionEvent) {
         newID.setText(newID.getText().toLowerCase());
 
-        if (newID.getText().length() == 24  || newID.getText().equals("sim")) {
+        if (newID.getText().length() == 24 || newID.getText().equals("sim")) {
             senseBoxId = newID.getText();
             messstation.stopTimer();
 
             tabs.clear();
             charts.clear();
-            tabPane.getTabs().remove(1,tabPane.getTabs().size());
+            tabPane.getTabs().remove(1, tabPane.getTabs().size());
 
             messstationInitialisieren();
             temperature.clear();
@@ -114,13 +113,13 @@ public class Controller implements Observer {
         light1.setFill(newFill1);
         light1.setEffect(new DropShadow(40, newFill1));
 
-        float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0-270) + 270);
-        Color newFill2 = Color.hsb(newHue2,1,1);
+        float newHue2 = (float) ((pressureData.getAktWert() - pressureData.getMinWert()) / (pressureData.getMaxWert() - pressureData.getMinWert()) * (0 - 270) + 270);
+        Color newFill2 = Color.hsb(newHue2, 1, 1);
         light2.setFill(newFill2);
         light2.setEffect(new DropShadow(40, newFill2));
 
-        float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0-270) + 270);
-        Color newFill3 = Color.hsb(newHue3,1,1);
+        float newHue3 = (float) ((humidityData.getAktWert() - humidityData.getMinWert()) / (humidityData.getMaxWert() - humidityData.getMinWert()) * (0 - 270) + 270);
+        Color newFill3 = Color.hsb(newHue3, 1, 1);
         light3.setFill(newFill3);
         light3.setEffect(new DropShadow(40, newFill3));
     }
@@ -132,7 +131,7 @@ public class Controller implements Observer {
 
         ArrayList<Messreihe> messreihen = messstation.getMessreihen();
 
-        for (Messreihe m : messreihen){
+        for (Messreihe m : messreihen) {
             Tab newTab = new Tab(m.getTitel());
             tabs.add(newTab);
 
@@ -164,10 +163,6 @@ public class Controller implements Observer {
     public void update() {
         updateTextfields();
         changeLightColors();
-//        for (LineChart<String, Number> c : charts){
-//            c.getData().clear();
-//        }
-//        updateDiagrams();
     }
 
     private void updateTextfields() {
@@ -191,7 +186,7 @@ public class Controller implements Observer {
 
     public void updateDiagrams() {
 
-        for (int i = 0; i < messstation.getMessreihen().size() ; i++) {
+        for (int i = 0; i < messstation.getMessreihen().size(); i++) {
 
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
