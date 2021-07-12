@@ -14,22 +14,22 @@
             <image>
                <Image url="@Images/background.gif" />
             </image></ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="261.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="363.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/pfp4.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="343.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="402.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/pfp1.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="169.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="52.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Images/pfp2.gif" />
+               <Image url="@Images/80386108.jpg" />
             </image>
          </ImageView>
-         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="82.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="14.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@Images/a_b5eb1d841dc978c42d64ff540f8787bd.gif" />
             </image>
@@ -115,7 +115,7 @@
         </DropShadow>
       </effect>
       </ToggleButton>
-      <ImageView fitHeight="149.0" fitWidth="440.0" layoutY="-24.0" pickOnBounds="true">
+      <ImageView fitHeight="149.0" fitWidth="440.0" pickOnBounds="true">
             <image>
                <Image url="@Images/Name.png" />
             </image></ImageView>
