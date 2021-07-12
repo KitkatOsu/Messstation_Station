@@ -104,6 +104,8 @@ public class Controller implements Observer {
         assert newID != null : "fx:id=\"newID\" was not injected: check your FXML file 'view.fxml'.";
         assert tabPane != null : "fx:id=\"tabPane\" was not injected: check your FXML file 'view.fxml'.";
 
+        tabPane.setMaxSize(440, 532);
+
         senseBoxId = "607db857542eeb001cba21f0";
 //        senseBoxId = "sim";
 
