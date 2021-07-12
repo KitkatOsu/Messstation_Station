@@ -31,8 +31,15 @@ public class Auswertungen
         }
         return min;
     }
-    
-   
 
-   
+
+    public static double average(ArrayList<Messung> messungen) {
+       double sumOfMessungenValues = 0;
+
+       for (Messung m : messungen){
+           sumOfMessungenValues += m.getWert();
+       }
+       double averageOfValues = sumOfMessungenValues / messungen.size();
+       return averageOfValues;
+    }
 }

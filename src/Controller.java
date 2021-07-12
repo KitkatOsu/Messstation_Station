@@ -1,5 +1,8 @@
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -8,6 +11,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
@@ -16,10 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import sensemapintegration.Messreihe;
-import sensemapintegration.Messstation;
-import sensemapintegration.Messung;
-import sensemapintegration.Observer;
+import sensemapintegration.*;
 
 public class Controller implements Observer {
 
@@ -102,8 +103,10 @@ public class Controller implements Observer {
         senseBoxId = "607db857542eeb001cba21f0";
 //        senseBoxId = "sim";
 
+
         messstationInitialisieren();
-//        updateDiagrams();
+
+
     }
 
     public void changeLightColors() {
@@ -185,18 +188,33 @@ public class Controller implements Observer {
     }
 
     public void updateDiagrams() {
+//        for (int i = 0; i < messstation.getMessreihen().size(); i++) {
+//
+//            Messreihe r = messstation.getMessreihen().get(i);
+//            XYChart.Series series = new XYChart.Series();
+//            for (int j = r.getMessungen().size() - 1; j >= r.getMessungen().size() - 1000; j -= 100) {
+//                Messung m = r.getMessungen().get(j);
+//                series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
+//                /*System.out.println(m.getErzeugtAm());*/
+//            }
+//            series.setName(r.getTitel());
+//            charts.get(i).getData().addAll(series);
+//        }
 
         for (int i = 0; i < messstation.getMessreihen().size(); i++) {
 
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
-            for (int j = r.getMessungen().size() - 1; j >= r.getMessungen().size() - 1000; j -= 100) {
-                Messung m = r.getMessungen().get(j);
-                series.getData().add(new XYChart.Data(m.getErzeugtAm(), m.getWert()));
-                /*System.out.println(m.getErzeugtAm());*/
+            for (int j = 0 ; j<7 ; j++) {
+                Date currentDay = new Date();
+                Date dateToGetDataFrom = new Date(currentDay.getTime() - Duration.ofDays(j).toMillis());
+                double averageValuesOfDate = Auswertungen.average(r.getMessungenAm(dateToGetDataFrom));
+
+                SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
+                String str = ft.format(dateToGetDataFrom);
+
+                series.getData().add(new XYChart.Data(str, averageValuesOfDate));
             }
-            series.setName(r.getTitel());
-            charts.get(i).getData().addAll(series);
         }
     }
 }
