@@ -1,14 +1,20 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import sensemapintegration.Auswertungen;
@@ -16,11 +22,13 @@ import sensemapintegration.Messreihe;
 import sensemapintegration.Messstation;
 import sensemapintegration.Observer;
 
+
 import java.awt.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 public class Controller implements Observer {
@@ -141,27 +149,65 @@ public class Controller implements Observer {
         for (Messreihe m : messreihen) {
             Tab newTab = new Tab(m.getTitel());
             tabs.add(newTab);
-            StackPane pane = new StackPane();
+            VBox vb = new VBox();
+            vb.setSpacing(30);
+
 
 
             LineChart<String, Number> chart = new LineChart(new CategoryAxis(), new NumberAxis());
-            chart.setMaxSize(430, 400);
-
-            TextField currentData = new TextField();
-            datas.get(0).add(currentData);
-            TextField minData = new TextField();
-            datas.get(1).add(minData);
-            TextField maxData = new TextField();
-            datas.get(2).add(maxData);
-            TextField averageData = new TextField();
-            datas.get(3).add(averageData);
-
-            pane.getChildren().addAll(currentData, minData, maxData, averageData);
-            pane.getChildren().add(chart);
             charts.add(chart);
+            chart.setMaxSize(430, 300);
 
 
-            newTab.setContent(pane);
+            Label currentDataLabel = new Label("Current Value:");
+            currentDataLabel.setTextFill(Color.WHITE);
+            TextField currentDataTextField = new TextField();
+            datas.get(0).add(currentDataTextField);
+
+
+            Label minDataLabel = new Label("Minimum Value:");
+            minDataLabel.setTextFill(Color.WHITE);
+            TextField minDataTextField = new TextField();
+            datas.get(1).add(minDataTextField);
+
+            Label maxDataLabel = new Label("Maximimum Value:");
+            maxDataLabel.setTextFill(Color.WHITE);
+            TextField maxDataTextField = new TextField();
+            datas.get(2).add(maxDataTextField);
+
+            Label averageDataLabel = new Label("Average Value:");
+            averageDataLabel.setTextFill(Color.WHITE);
+            TextField averageDataTextField = new TextField();
+            datas.get(3).add(averageDataTextField);
+
+
+            HBox currentData = new HBox();
+            currentData.getChildren().addAll(currentDataLabel, currentDataTextField);
+            currentData.setSpacing(20);
+            currentData.setAlignment(Pos.CENTER);
+
+            HBox minData = new HBox();
+            minData.getChildren().addAll(minDataLabel, minDataTextField);
+            minData.setSpacing(20);
+            minData.setAlignment(Pos.CENTER);
+
+
+            HBox maxData = new HBox();
+            maxData.getChildren().addAll(maxDataLabel, maxDataTextField);
+            maxData.setSpacing(20);
+            maxData.setAlignment(Pos.CENTER);
+
+            HBox averageData = new HBox();
+            averageData.getChildren().addAll(averageDataLabel, averageDataTextField);
+            averageData.setSpacing(20);
+            averageData.setAlignment(Pos.CENTER);
+
+            vb.getChildren().add(chart);
+            vb.getChildren().addAll(currentData, minData, maxData, averageData);
+
+
+
+            newTab.setContent(vb);
             tabPane.getTabs().add(newTab);
 
         }
