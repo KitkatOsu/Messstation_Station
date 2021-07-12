@@ -1,8 +1,5 @@
 package sensemapintegration;
 
-import javafx.animation.AnimationTimer;
-
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,7 +10,7 @@ public class Messstation {
     private String name;
     private ArrayList<Messreihe> messreihen;
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    private AnimationTimer updater;
+    private TimerTask updater;
 
 
     public Messstation(String senseBoxId) {
@@ -35,31 +32,23 @@ public class Messstation {
     }
 
     public void stopTimer() {
-        updater.stop();
+        updater.cancel();
     }
 
     public void startTimer() {
         Messstation a = this;
-        updater = new AnimationTimer() {
+        updater = new TimerTask() {
 
             Messstation m = a;
-            long nanosInterval = Duration.ofSeconds(30).toNanos();
-            long currentTime;
 
             @Override
-            public void handle(long now) {
-                long nanosSinceLastTime = now - currentTime;
-
-                if(nanosSinceLastTime > nanosInterval) {
-                    currentTime = now;
-                    m.aktuelleMesswerteEinlesen();
-                    m.updateAll();
-
-                }
+            public void run() {
+                m.aktuelleMesswerteEinlesen();
+                m.updateAll();
             }
         };
-
-        updater.start();
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(updater, 1, 100000);
 
 
     }
