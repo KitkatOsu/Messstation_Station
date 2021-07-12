@@ -12,7 +12,7 @@ We do not assure that the presented information is accurate or delayed, we do re
 Our application is currently WORK IN PROGRESS, hence some of our featurs might not work  <br> at the time of downloading the application.
 
 This is a school intern program mainly used to train programming and learn to work as a group, <br> work out solutions for occuring errors and to deal with a "real life" situation. <br>
-For any additions to the program you want to make, read [This](CONTRIBUTING.md)
+For any issues or suggestions, read [This](CONTRIBUTING.md)
 <br>
 <br>
 ### PS: <br>
