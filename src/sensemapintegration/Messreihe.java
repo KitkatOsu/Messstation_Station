@@ -71,7 +71,6 @@ public class Messreihe {
     public ArrayList<Messung> getMessungenAm(Date date) {
         SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd");
         String str = ft.format(date);
-        System.out.printf(str);
 
         boolean reachedDate = false;
 
