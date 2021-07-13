@@ -26,12 +26,12 @@
          </ImageView>
          <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="52.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Images/80386108.jpg" />
+               <Image url="@Images/pfp2.jpg" />
             </image>
          </ImageView>
          <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="26.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
             <image>
-               <Image url="@Images/a_b5eb1d841dc978c42d64ff540f8787bd.gif" />
+               <Image url="@Images/pfp3.jpg" />
             </image>
          </ImageView>
       <Circle fx:id="light1" fill="#ff1f1f" layoutX="94.0" layoutY="200.0" radius="20.0" stroke="TRANSPARENT">
