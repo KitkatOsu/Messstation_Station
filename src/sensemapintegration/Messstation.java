@@ -31,6 +31,7 @@ public class Messstation {
         observers.add(o);
     }
 
+    //Method to stop the timer
     public void stopTimer() {
         updater.cancel();
     }
@@ -87,6 +88,8 @@ public class Messstation {
         return messreihen;
     }
 
+
+    //two getters that return a Messreihe according to the name/unit given to them
     public Messreihe getMessreihe(String nameOfMessreihe) {
         for (Messreihe r : messreihen) {
             if (nameOfMessreihe.equals(r.getTitel()))
