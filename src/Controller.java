@@ -155,7 +155,7 @@ public class Controller implements Observer {
 
         messstation.addObserver(this);
 
-        dynamicallyCreateTabsForEveryMessreihe();
+        dynamicallyCreateTabsForEveryMessreihe(messstation.getMessreihen());
 
         //set these 3 TextFields to Not Available if their corresponding Messreihen don't exist
         temperatureData = messstation.getMessreiheMitEinheit("°C");
@@ -277,9 +277,12 @@ public class Controller implements Observer {
 
 
 
-
-    public void dynamicallyCreateTabsForEveryMessreihe(){
-        ArrayList<Messreihe> messreihen = messstation.getMessreihen();
+    //Making new Tabs depending on what Messreihen we get from the Messstation
+    //We're basically coding an FXML in java here
+    //this allows us to add more tabs when certain conditions are met, e.g. a
+    //new ID was submitted then the old tabs get deleted and this method is called
+    //to create the new tabs
+    public void dynamicallyCreateTabsForEveryMessreihe(ArrayList<Messreihe> messreihen){
 
         for (int i = 0; i < messreihen.size(); i++) {
             //Making a new Tab and a VBox which will be filled
@@ -326,33 +329,29 @@ public class Controller implements Observer {
             textFieldsForTabs.get(i)[3] = averageDataTextField;
 
 
-            //creating several HBoxes that are being filled with the Labels and TextFields
-            HBox currentData = new HBox();
-            currentData.getChildren().addAll(currentDataLabel, currentDataTextField);
-            currentData.setSpacing(20);
-            currentData.setAlignment(Pos.CENTER);
+
+            //creating two VBoxes that are being filled with the
+            //Labels/TextFields and added in a HBox
+            VBox labelBox = new VBox();
+            labelBox.getChildren().addAll(currentDataLabel, minDataLabel, maxDataLabel, averageDataLabel);
+            labelBox.setSpacing(18);
+            labelBox.setTranslateY(5);
+            labelBox.setAlignment(Pos.BASELINE_RIGHT);
 
 
-            HBox minData = new HBox();
-            minData.getChildren().addAll(minDataLabel, minDataTextField);
-            minData.setSpacing(20);
-            minData.setAlignment(Pos.CENTER);
+            VBox textFieldBox = new VBox();
+            textFieldBox.getChildren().addAll(currentDataTextField, minDataTextField, maxDataTextField, averageDataTextField);
+            textFieldBox.setSpacing(10);
+            textFieldBox.setAlignment(Pos.BASELINE_RIGHT);
 
 
-            HBox maxData = new HBox();
-            maxData.getChildren().addAll(maxDataLabel, maxDataTextField);
-            maxData.setSpacing(20);
-            maxData.setAlignment(Pos.CENTER);
+            HBox labelsAndTextFields = new HBox();
+            labelsAndTextFields.getChildren().addAll(labelBox, textFieldBox);
+            labelsAndTextFields.setAlignment(Pos.CENTER);
+            labelsAndTextFields.setSpacing(20);
 
-
-            HBox averageData = new HBox();
-            averageData.getChildren().addAll(averageDataLabel, averageDataTextField);
-            averageData.setSpacing(20);
-            averageData.setAlignment(Pos.CENTER);
-
-            //Adding the chart and all the HBoxes to the VBox
-            vb.getChildren().add(chart);
-            vb.getChildren().addAll(currentData, minData, maxData, averageData);
+            //Adding the chart and the HBox to the VBox
+            vb.getChildren().addAll(chart, labelsAndTextFields);
 
             //Adding the VBox to the new Tab which is then added
             //to the TabPane
