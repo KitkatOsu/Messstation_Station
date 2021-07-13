@@ -1,6 +1,13 @@
 Documentation for the Sensemapintegration package
 
-to use import sensemapintegration.Messstation and sensemapintegration.Messreihe
+IMPORTANT NOTE:
+code is from https://github.com/11sloe/wetterstation2021 but we added a lot of our own methods to it
+
+This documentation is mainly for the other contributors of this project so they won't
+have to study the code on their own
+Since no one really used it and each of our own parts in the packages code have
+been commented accordingly I won't update this Documentation anymore
+
 
 
 Messstation (class that gets all of the sensemap data)
@@ -8,14 +15,18 @@ Messstation (class that gets all of the sensemap data)
 Methods:
 Constructor takes in a String of the senseboxid
 String getName() returns the name of the sensebox
-Messreihe getMessreihen(String nameOfMessreihe) returns a Messreihe that contains a list of the type Messung
+Messreihe getMessreihen(String nameOfMessreihe) returns a Messreihe according to the given name
+Messreihe getMessreihen(String einheitOfMessreihe) returns a Messreihe according to the given unit
 
 
-Messreihe (class that contains object of the class Messung)
+
+Messreihe (class that contains an ArrayList of Messung objects)
 
 Methods:
 String toString() returns the name of the Messreihe (e.g. CO₂ ( ppm ) or Temperatur ( °C ))
 String getTitel() returns the type of the Messungen (e.g. Temperatur or CO₂)
+String getEinheit() returns the unit of the Messungen (°C or %)
 String getAktWert() returns the latest value of that Messreihe
-String getMaxWert() returns the highest value in that Messreihe
 String getMinWert() returns the lowest value in that Messreihe
+String getMaxWert() returns the highest value in that Messreihe
+String getAverageWert() returns the average value in that Messreihe
