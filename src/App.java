@@ -10,10 +10,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Darstellung als fxml-Datei
+        // Setting as fxml
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view.fxml")));
 
-        // Fenster erstellen und anzeigen
+        // Create and show window
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();

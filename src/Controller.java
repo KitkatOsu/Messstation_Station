@@ -68,7 +68,7 @@ public class Controller implements Observer {
     private ArrayList<Tab> tabs = new ArrayList<>();
     private ArrayList<TextField[]> textFieldsForTabs = new ArrayList<>(); //0 current, 1 min, 2 max, 3 average
 
-
+    //Submit a new ID through the Submission box + button
     @FXML
     public void submitNewId(ActionEvent actionEvent) {
         newID.setText(newID.getText().toLowerCase());
@@ -103,8 +103,8 @@ public class Controller implements Observer {
         tabPane.setMaxSize(440, 532);
 
         senseBoxId = "607db857542eeb001cba21f0";
-//        senseBoxId = "sim";
 
+//        senseBoxId = "sim";
 
 
         messstationInitialisieren();
@@ -112,6 +112,7 @@ public class Controller implements Observer {
 
     }
 
+    //Change the  light colors of the circles according to the current value and its max and min value using a formula that is big brain
     public void changeLightColors() {
         // Formula: Y = (X-A)/(B-A) * (D-C) + C
         if (!temperatureData.getEinheit().equals("N/A")) {
@@ -135,6 +136,7 @@ public class Controller implements Observer {
         }
     }
 
+    //Initialize the messsation, set atributes for the tabs, add other stuff to the dynamic tabs etc.
     private void messstationInitialisieren() {
         messstation = new Messstation(senseBoxId);
         for (int i = 0; i < messstation.getMessreihen().size(); i++)
@@ -152,11 +154,11 @@ public class Controller implements Observer {
             vb.setSpacing(30);
 
 
-
             LineChart<String, Number> chart = new LineChart(new CategoryAxis(), new NumberAxis());
             charts.add(chart);
             chart.setMaxSize(430, 300);
 
+//Set New labels for every new dynamic tab
 
             Label currentDataLabel = new Label("Current Value:");
             currentDataLabel.setTextFill(Color.WHITE);
@@ -209,7 +211,6 @@ public class Controller implements Observer {
             vb.getChildren().addAll(currentData, minData, maxData, averageData);
 
 
-
             newTab.setContent(vb);
             tabPane.getTabs().add(newTab);
 
@@ -232,12 +233,14 @@ public class Controller implements Observer {
         messstation.startTimer();
     }
 
+    //Calling the methods to update
     @Override
     public void update() {
         updateTextfields();
         changeLightColors();
     }
 
+    //Update all the TextFields at once
     private void updateTextfields() {
 
         if (!temperatureData.getEinheit().equalsIgnoreCase("N/A"))
@@ -255,7 +258,7 @@ public class Controller implements Observer {
         else
             humidity.setText(humidityData.getEinheit());
 
-        for (int i = 0; i<messstation.getMessreihen().size();i++){
+        for (int i = 0; i < messstation.getMessreihen().size(); i++) {
             Messreihe r = messstation.getMessreihen().get(i);
             String einheit = r.getEinheit();
 
@@ -269,6 +272,7 @@ public class Controller implements Observer {
 
     }
 
+    // Update all the Diagrams at once
     public void updateDiagrams() {
 
         for (int i = 0; i < messstation.getMessreihen().size(); i++) {
@@ -291,6 +295,7 @@ public class Controller implements Observer {
         }
     }
 
+    // Change the Theme of the application.... Yeah for sure ;)
     public void changeTheme(ActionEvent actionEvent) {
         try {
             Desktop.getDesktop().browse(new URL("https://blog.weekdone.com/why-you-should-switch-on-dark-mode/").toURI());

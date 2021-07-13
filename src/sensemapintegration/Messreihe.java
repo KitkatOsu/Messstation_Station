@@ -36,7 +36,7 @@ public class Messreihe {
     }
 
     public void eineMessungHinzufuegen(Messung m) {
-        messungen.add(0, m); // Neueste Messungen werden an der Stelle 0 eingefuegt
+        messungen.add(0, m); // New measurement has been set at place 0
     }
 
     public void messungenHinzufuegen(ArrayList<Messung> neueMessungen) {
@@ -46,7 +46,7 @@ public class Messreihe {
     public Messung getAktMessung() {
         int anzahl = messungen.size();
         if (anzahl == 0) {
-            return new Messung(0, "kein Messwert vorhanden");
+            return new Messung(0, "No Measurement found.");
         } else {
             return messungen.get(0);
         }

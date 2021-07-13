@@ -4,14 +4,14 @@ import java.util.*;
 
 
 /*
- * Klasse die die Anbindung an die sensemapintegration.OpenSenseMap simuliert
+ * Class that simulates the connection to opensensemap.com
  */
 
 public class SenseMapSimulation implements SenseMap
 {
     String name = "BoxSimulation";
     
-    // Werte der Box:
+    // Values of the box
     double aktTemp = 13.0;
     double aktLuftdruck = 1013;
     double aktLuftfeuchte = 50;

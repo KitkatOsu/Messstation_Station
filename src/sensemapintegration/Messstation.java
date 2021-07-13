@@ -20,7 +20,7 @@ public class Messstation {
             map = new OpenSenseMap(senseBoxId);
         }
 
-        // Daten Einlesen
+        // Read Data
         basisinfosAusSenseMapEinlesen();
         messreihenEinlesen();
         // aktuelleMesswerteEinlesen();
@@ -35,6 +35,7 @@ public class Messstation {
         updater.cancel();
     }
 
+    //Start a timer for all types of things to work and count
     public void startTimer() {
         Messstation a = this;
         updater = new TimerTask() {

@@ -6,8 +6,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 /*
- * Eine HTTP-Anfrage mit Hilfe der Klasse HttpClient
- * Geht ab Java 11
+ * A HTTPS API request using the HTTPSClient Class
+ * Works from Java 11 and upwards
  */
 
 public class HTTPAnfrage
