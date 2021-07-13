@@ -230,7 +230,7 @@ public class Controller implements Observer {
 
             Messreihe r = messstation.getMessreihen().get(i);
             XYChart.Series series = new XYChart.Series();
-            for (int j = 10; j > 0; j--) {
+            for (int j = 13; j > 0; j--) {
                 //Getting the Messungen from 4*j hours before the date of the last Messung
                 if (r.getMessungen().isEmpty())
                     break;
