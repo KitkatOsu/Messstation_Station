@@ -232,6 +232,9 @@ public class Controller implements Observer {
             XYChart.Series series = new XYChart.Series();
             for (int j = 10; j > 0; j--) {
                 //Getting the Messungen from 4*j hours before the date of the last Messung
+                if (r.getMessungen().isEmpty())
+                    break;
+
                 String dateOfLastMessungString = r.getAktMessung().getErzeugtAm().substring(0,13);
                 Date dateOfLastMessung = null;
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH");
