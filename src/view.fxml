@@ -76,11 +76,6 @@
           <DropShadow />
         </effect>
       </TextField>
-      <TextField fx:id="newID" layoutX="102.0" layoutY="419.0" onAction="#submitNewId" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
-        <effect>
-          <DropShadow />
-        </effect>
-      </TextField>
       <Button layoutX="348.0" layoutY="419.0" mnemonicParsing="false" onAction="#submitNewId" text="Submit">
         <effect>
           <DropShadow blurType="GAUSSIAN" height="40.0" radius="19.5" width="40.0">
@@ -115,6 +110,11 @@
             <image>
                <Image url="@Images/Name.png" />
             </image></ImageView>
+      <TextField fx:id="newID" layoutX="102.0" layoutY="419.0" onAction="#submitNewId" prefHeight="25.0" prefWidth="241.0" promptText="Enter desired SenseboxID here" style="-fx-background-color: lightgrey; -fx-prompt-text-fill: black;">
+        <effect>
+          <DropShadow />
+        </effect>
+      </TextField>
     </AnchorPane>
   </Tab>
 </TabPane>
