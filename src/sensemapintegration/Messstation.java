@@ -27,6 +27,7 @@ public class Messstation {
 
     }
 
+    //Adds an observer to the list
     public void addObserver(Observer o) {
         observers.add(o);
     }
@@ -55,6 +56,7 @@ public class Messstation {
 
     }
 
+    //Calls the update method of all the observers
     private void updateAll() {
         for (Observer o : observers) {
             o.update();
@@ -99,12 +101,12 @@ public class Messstation {
         return null;
     }
 
-    public Messreihe getMessreiheMitEinheit(String einheit) {
+    public Messreihe getMessreiheMitEinheit(String einheitOfMessreihe) {
         for (Messreihe r : messreihen) {
-            if (einheit.equals(r.getEinheit()))
+            if (einheitOfMessreihe.equals(r.getEinheit()))
                 return r;
         }
-        System.out.println("ERROR: Messreihe with unit " + einheit + " doesn't exist");
+        System.out.println("ERROR: Messreihe with unit " + einheitOfMessreihe + " doesn't exist");
         return null;
     }
 }
