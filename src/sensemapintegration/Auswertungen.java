@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Auswertungen {
 
-
     public static double max(ArrayList<Messung> messungen) {
         double max = messungen.get(0).getWert();
         for (Messung m : messungen) {
@@ -32,7 +31,7 @@ public class Auswertungen {
         for (Messung m : messungen) {
             sumOfMessungenValues += m.getWert();
         }
-        double averageOfValues = -9999;
+        double averageOfValues = -9999;     // value that gets returned if the ArrayList is empty
         if (messungen.size() != 0)
             averageOfValues = sumOfMessungenValues / messungen.size();
 
